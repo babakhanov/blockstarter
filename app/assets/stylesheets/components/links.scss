@@ -1,0 +1,8 @@
+.link {
+  &-base {
+    &, &:hover {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
+}
