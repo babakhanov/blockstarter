@@ -5,4 +5,12 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %div(hello-world)
+    .tbl
+      .sidebar
+        .gtr-hor.gtr-ver.font-light
+          %a.sidebar-link(href='/#my_tickets') My Tickets
+          %a.sidebar-link(href='/#settings') Settings
+      .tbl-cell.align-top
+        .header
+        .content
+          .gtr-hor.gtr-ver(ng-view)

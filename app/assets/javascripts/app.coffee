@@ -1,12 +1,12 @@
-directive = ->
-  templateUrl: "index.html"
-  controller: ["$scope", ($scope) ->
-    $scope.time = (new Date()).getTime()
-  ]
+//= require ./core/core
+//= require ./tickets/tickets
+//= require ./shared/shared
 
 angular.module "app", [
+  "ngRoute",
   "templates"
+  "app.core"
+  "app.tickets"
+  "app.shared"
 ]
 
-angular.module "app"
-  .directive "helloWorld", [directive]

@@ -1,0 +1,25 @@
+.sidebar {
+  @include scope((
+    "tbl-cell",
+    "bg-dark",
+    "box-md",
+    "align-top",
+    "color-white",
+  ));
+  text-shadow: 0 0 1px rbga(black, 0.5);
+  &-link {
+    display: block;
+    padding: 10px $gutter / 2;
+    margin: 0 -#{$gutter / 2};
+    color: rgba(white, 0.95);
+    font-weight: $fw-light;
+    border-bottom: 1px solid rgb(74, 88, 103);
+    &:first-child {
+      border-top: 1px solid rgb(74, 88, 103);
+    }
+    &:hover {
+      color: white;
+      background-color: rgba(white, 0.03);
+    }
+  }
+}

@@ -5,4 +5,11 @@
       text-decoration: none;
     }
   }
+  &-inherit {
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      color: $link-color;
+    }
+  }
 }

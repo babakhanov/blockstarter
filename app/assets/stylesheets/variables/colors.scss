@@ -1,10 +1,14 @@
+$body-bg: rgb(236, 241, 247);
 $bg-colors: (
   ('white', #ffffff),
   ('body', $body-bg),
+  ('light', #e5e5e5),
+  ('dark', rgb(63,76,91)),
 );
 
 $text-colors: (
   ('light', #ccc),
+  ('white', white),
 );
 $border-colors: (
   ('light', #eee),
