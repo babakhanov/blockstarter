@@ -8,13 +8,14 @@ html, body {
   padding: 0;
 } 
 .header {
-  height: 4rem;
+  height: $header-height;
   position: fixed;
-  left: 30rem;
+  left: 0;
   top: 0;
   right: 0;
   background: rgb(111, 148, 187);
+  z-index: 1;
 }
 .content {
-  padding: 4rem 0 0 0;
+  padding: $header-height 0 0 0;
 }

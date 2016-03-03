@@ -6,7 +6,9 @@
     "align-top",
     "color-white",
   ));
-  text-shadow: 0 0 1px rbga(black, 0.5);
+  text-shadow: 0 0 1px rgba(black, 0.5);
+  position: relative;
+  z-index: 2;
   &-link {
     display: block;
     padding: 10px $gutter / 2;
@@ -17,7 +19,7 @@
     &:first-child {
       border-top: 1px solid rgb(74, 88, 103);
     }
-    &:hover {
+    &:hover, &:focus {
       color: white;
       background-color: rgba(white, 0.03);
     }

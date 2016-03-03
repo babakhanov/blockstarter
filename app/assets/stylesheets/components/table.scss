@@ -2,7 +2,9 @@
   display: table;
   height: 100%;
   width: 100%;
-  table-layout: fixed;
+  &.fixed {
+    table-layout: fixed;
+  }
   &-cell {
     display: table-cell;
     height: 100%;

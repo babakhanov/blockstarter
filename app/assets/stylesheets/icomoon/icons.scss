@@ -1,3 +1,18 @@
+.#{$icomoon-prefix}-close { 
+  &:before {
+    content: $icon-close;
+  }
+}
+.#{$icomoon-prefix}-paper-plane { 
+  &:before {
+    content: $icon-paper-plane;
+  }
+}
+.#{$icomoon-prefix}-check { 
+  &:before {
+    content: $icon-check;
+  }
+}
 .#{$icomoon-prefix}-bitcoin-ticket { 
   &:before {
     content: $icon-bitcoin-ticket;

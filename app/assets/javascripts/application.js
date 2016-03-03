@@ -12,4 +12,5 @@
 //= require angular-strap/dist/modules/datepicker
 //= require angular-strap/dist/modules/datepicker.tpl
 //= require_tree ./templates
+//= require modules/modules
 //= require app

@@ -1,0 +1,20 @@
+.modal
+  .modal-dialog
+    %form.modal-content(name="addTicketForm")
+      .modal-header.bg-light
+        %h4 Add Tickets
+      .modal-body
+        .row
+          .col-md-8
+            .clearfix
+              %label.form-label.required
+                .form-label-text Event Name
+                %input.form-control(ng-model="addTicketForm.ticketName" required type="text")
+          .col-md-4
+            .clearfix
+              %label.form-label
+                .form-label-text Amount
+                %input.form-control(type="number" ng-model="addTicketForm.amount" required)
+      .modal-footer.bg-light
+        %button.btn.btn-default(ng-click="$hide()") Cancel
+        %button.btn.btn-primary(ng-click="addTicket(addTicketForm)" ng-disabled="!addTicketForm.$valid") Create

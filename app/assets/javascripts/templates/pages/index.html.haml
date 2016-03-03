@@ -1,1 +1,54 @@
-.clearfix Index page
+.clearfix
+  .gtr-b-sm
+    .text-lg
+      .text-lg My Tickets
+  .text-line
+    .gtr-b-sm(ng-repeat="(key, ticket) in tickets track by $index")
+      .box-ticket.bg-white(ng-init="formShown=false")
+        .clearfix(ng-show="!formShown")
+          .tbl
+            .tbl-cell.cell-8.align-top
+              .gtr-hor-sm.gtr-ver-sm
+                %b {{key}}
+                .gtr-t-sm.text-sm
+                  .tbl
+                    .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs
+                      Amount: 
+                    .tbl-cell.gtr-ver-xs.gtr-hor-sm
+                      {{ticket.amount}}
+                  .tbl
+                    .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs
+                      AssetId: 
+                    .tbl-cell.gtr-ver-xs.gtr-hor-sm
+                      {{ticket.assetId}}
+            .tbl-cell.cell-4.text-right.align-bottom
+              .gtr-hor-sm.gtr-ver-sm
+                %button.btn.btn-success(ng-click="formShown=!form")
+                  .smile.align-middle.gtr-r-xs=icon :paper_plane
+                  .smile.align-middle
+                    Send This Ticket
+        .clearfix.bg-lightblue(ng-show="formShown")
+          .gtr-ver-2x(ng-show="sending")
+            .tbl.gtr-t-sm
+              .spinner
+                .bounce-1
+                .bounce-2
+                .bounce-3
+          .clearfix(ng-show="!sending")
+            %a(href ng-click="formShown=!formShown")= icon :close, class: 'gtr-r-xs gtr-t-xs pull-right'
+            %form.gtr-hor-sm(name="sendTicketForm")
+              .gtr-t-sm.text-md.gtr-b-sm
+                %b {{key}}
+              .tbl
+                .tbl-cell.align-bottom.cell-12
+                  %label.form-label
+                    .form-label-text Address
+                    %input.form-control(ng-model="sendTicketForm.address")
+                .tbl-cell.align-bottom
+                  .gtr-b-sm.gtr-l
+                    %button.btn.btn-success(ng-click="sendTicket(sendTicketForm)")
+                      = icon :paper_plane
+
+          
+  .clearfix
+    %button.btn.btn-primary(ng-click="addTicketModal.show()") Add Ticket

@@ -12,6 +12,7 @@
 @import "mixins/font_face";
 @import "mixins/gutter";
 @import "mixins/shapes";
+@import "mixins/forms";
 @import "mixins/utilities";
 
 @import "icomoon/variables";
@@ -29,6 +30,8 @@
 @import "components/forms";
 @import "components/buttons";
 @import "components/box";
+@import "components/spinner";
+@import "components/modal";
 
 @import "icomoon/main";
 @import "icomoon/icons";

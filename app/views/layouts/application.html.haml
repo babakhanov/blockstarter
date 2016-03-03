@@ -5,12 +5,19 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    .header
     .tbl
       .sidebar
+        .clearfix.text-center.text-lg.head-lg.gtr-t
+          %a.link-base(href='/#/')= icon :bitcoin_ticket
         .gtr-hor.gtr-ver.font-light
           %a.sidebar-link(href='/#my_tickets') My Tickets
           %a.sidebar-link(href='/#settings') Settings
       .tbl-cell.align-top
-        .header
-        .content
+        .tbl(ng-show="waiting")
+          .spinner
+            .bounce-1
+            .bounce-2
+            .bounce-3
+        .content(ng-show="!waiting")
           .gtr-hor.gtr-ver(ng-view)
