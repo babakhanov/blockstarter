@@ -3,3 +3,4 @@
 /vendor/assets/bower_components
 !/log/.keep
 /tmp
+colu/node_modules
