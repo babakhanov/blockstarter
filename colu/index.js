@@ -8,7 +8,7 @@ var db = jf.readFileSync(__dirname + '/' + dbFileName)
 var app = express()
 
 var colu = new Colu({
-  network: 'mainnet',
+  network: 'testnet',
   privateSeedWIF: 'KxjT1Q2H6MqheA6xnwKB9QJGddTAUD6KMtNpuvqvcnxpszG1mJKn',
   apiKey: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJiYWJha2hhbm92MUBnbWFpbC5jb20iLCJleHAiOiIyMDE2LTA0LTA5VDAxOjA0OjA2LjgwOVoiLCJ0eXBlIjoiYXBpX2tleSJ9.2fJ8fsJ4UgaqFn9aW9b2kUxd-F1NVB0IhZFImoedDCk'
 })

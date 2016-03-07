@@ -13,6 +13,9 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'haml-rails', '~> 0.9.0'
 gem 'bower-rails', '~> 0.10.0'
 gem 'angular-rails-templates', '~> 1.0'
+gem 'coloredcoins', '~> 0.0.1'
+gem 'ffi'
+gem 'openassets-ruby'
 
 group :development, :test do
   gem 'byebug'
