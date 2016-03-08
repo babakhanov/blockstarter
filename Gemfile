@@ -15,6 +15,10 @@ gem 'bower-rails', '~> 0.10.0'
 gem 'angular-rails-templates', '~> 1.0'
 gem 'responders'
 gem 'bitcoin-ruby'
+gem 'cancancan'
+gem 'active_model_serializers'
+gem 'puma'
+gem 'devise'
 
 group :development, :test do
   gem 'byebug'

@@ -20,6 +20,8 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 1.0, >= 1.0.5)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
+    active_model_serializers (0.9.3)
+      activemodel (>= 3.2)
     activejob (4.2.5.1)
       activesupport (= 4.2.5.1)
       globalid (>= 0.3.0)
@@ -44,6 +46,7 @@ GEM
     autoprefixer-rails (6.3.3)
       execjs
       json
+    bcrypt (3.1.11)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     bitcoin-ruby (0.0.8)
@@ -53,6 +56,7 @@ GEM
     bower-rails (0.10.0)
     builder (3.2.2)
     byebug (8.2.2)
+    cancancan (1.12.0)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
@@ -62,6 +66,13 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.0)
     debug_inspector (0.0.2)
+    devise (3.5.6)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      responders
+      thread_safe (~> 0.1)
+      warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (2.6.0)
     globalid (0.3.6)
@@ -98,7 +109,9 @@ GEM
     multi_json (1.11.2)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    orm_adapter (0.5.0)
     pg (0.18.4)
+    puma (3.1.0)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -162,6 +175,8 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    warden (1.2.6)
+      rack (>= 1.0)
     web-console (2.3.0)
       activemodel (>= 4.0)
       binding_of_caller (>= 0.7.2)
@@ -172,16 +187,20 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   angular-rails-templates (~> 1.0)
   bitcoin-ruby
   bootstrap-sass (~> 3.3, >= 3.3.6)
   bower-rails (~> 0.10.0)
   byebug
+  cancancan
   coffee-rails (~> 4.1.0)
+  devise
   haml-rails (~> 0.9.0)
   jbuilder (~> 2.0)
   jquery-rails
   pg (~> 0.15)
+  puma
   rails (= 4.2.5.1)
   responders
   sass-rails (~> 5.0.0.beta1)

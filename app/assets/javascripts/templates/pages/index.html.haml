@@ -9,7 +9,7 @@
           .tbl
             .tbl-cell.cell-8.align-top
               .gtr-hor-sm.gtr-ver-sm
-                %b {{key}}
+                %b {{ticket.name}}
                 .gtr-t-sm.text-sm
                   .tbl
                     .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs
@@ -20,7 +20,7 @@
                     .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs
                       AssetId: 
                     .tbl-cell.gtr-ver-xs.gtr-hor-sm
-                      {{ticket.assetId}}
+                      {{ticket.id}}
             .tbl-cell.cell-4.text-right.align-bottom
               .gtr-hor-sm.gtr-ver-sm
                 %button.btn.btn-success(ng-click="formShown=!form")

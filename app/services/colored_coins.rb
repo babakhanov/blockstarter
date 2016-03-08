@@ -4,7 +4,7 @@ require 'bitcoin'
 class ColoredCoins
 
   def initialize(network=:mainnet, api_v="v3")
-    @network = network
+    @network = network.to_sym
     @api_v = api_v
   end
 
@@ -23,8 +23,7 @@ class ColoredCoins
   private
 
   def api_url(endpoint="")
-    {
-      mainnet: "http://api.coloredcoins.org:80/#{@api_v}/#{endpoint.to_s}",
+    { mainnet: "http://api.coloredcoins.org:80/#{@api_v}/#{endpoint.to_s}",
       testnet: "http://testnet.api.coloredcoins.org:80/#{@api_v}/#{endpoint.to_s}"
     }[@network]
   end

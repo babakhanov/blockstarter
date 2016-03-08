@@ -1,14 +1,13 @@
-controller = ($scope, $http, $modal) ->
+controller = ($scope, $modal) ->
 
   $scope.$root.waiting = true
 
-  $http(
-    method: 'GET'
-    url: "#{App.Constants.apiUrl}/getTickets").then ((response) ->
-      $scope.tickets = response.data
-      $scope.$root.waiting = false
-  ), (response) -> console.log response
-
+  CRUD.index "assets", "", (response) ->
+    $scope.tickets = response.assets
+    $scope.$root.waiting = false
+    $scope.$apply() unless $scope.$$phase
+  
+  
   $scope.addTicketModal = $modal(
     templateUrl: "shared/create_ticket_modal.html"
     container: "body"
@@ -35,7 +34,6 @@ controller = ($scope, $http, $modal) ->
 angular.module "app.shared"
   .controller "indexPageCtrl", [
     "$scope"
-    "$http"
     "$modal"
     controller
   ]

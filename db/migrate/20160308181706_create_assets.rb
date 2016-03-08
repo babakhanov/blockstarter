@@ -8,6 +8,7 @@ class CreateAssets < ActiveRecord::Migration
       t.string :company_name
       t.string :address
       t.decimal :sale_margin
+      t.integer :amount
 
       t.timestamps null: false
     end
