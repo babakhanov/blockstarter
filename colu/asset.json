@@ -1,8 +1,31 @@
 {
-  "issueAddress": "n3gBLSu9ZhMbcA4iAZPqgF2C6FLwaJmBZW", 
-  "amount": 50, 
-  "fee": 1000, 
+  "issueAddress": "muCVj8gaLDLSzw4kH6nb4qW3eNrZSaUUUw", 
+  "amount": 25, 
+  "fee": 5000, 
+  "divisibility": 0,
+  "reissueable": false,
+  "transfer": [{
+    "address": "muCVj8gaLDLSzw4kH6nb4qW3eNrZSaUUUw",
+    "amount": 25
+  }],
   "metadata": {
-    "assetName": "Simple Asset"
+    "assetId": "1",
+    "assetName": "I create a new asset",
+    "issuer": "Cinema Hall",
+    "description": "blah blah",
+    "urls": [{
+      "name": "icon", 
+      "url": "https://pbs.twimg.com/profile_images/572390580823412736/uzfQSciL_bigger.png", 
+      "mimeType": "image/png", 
+      "dataHash": ""
+    }],
+    "userData": {
+      "meta" : [
+        {"key": "Item ID", "value": 2, "type": "Number"},
+	{"key": "Item Name", "value": "Item Name", "type": "String"},
+	{"key": "Company", "value": "My Company", "type": "String"},
+	{"key": "Address", "value": "San Francisco, CA", "type": "String"}
+      ]
+    }
   }
 }
