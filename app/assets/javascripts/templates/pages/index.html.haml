@@ -23,11 +23,15 @@
                       {{ticket.id}}
             .tbl-cell.cell-4.text-right.align-bottom
               .gtr-hor-sm.gtr-ver-sm
-                %button.btn.btn-success(ng-click="formShown=!form")
+                %button.btn.btn-success(ng-click="$parent.formShown=!$parent.form" ng-if="ticket.is_issued")
                   .smile.align-middle.gtr-r-xs=icon :paper_plane
                   .smile.align-middle
                     Send This Ticket
-        .clearfix.bg-lightblue(ng-show="formShown")
+                %button.btn.btn-primary(ng-if="!ticket.is_issued")
+                  .smile.align-middle.gtr-r-xs=icon :bitcoin_ticket, class: "btn-icon-addon"
+                  .smile.align-middle
+                    Issue This Ticket
+        .clearfix.bg-lightblue(ng-show="formShown" ng-if="!ticket.is_issued")
           .gtr-ver-2x(ng-show="sending")
             .tbl.gtr-t-sm
               .spinner
