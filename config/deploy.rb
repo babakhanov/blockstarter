@@ -30,6 +30,9 @@ namespace :deploy do
           execute :bundle, :exec, :"pumactl -F config/puma.rb stop"
           execute :bundle, :exec, :"puma -C config/puma.rb -e #{fetch(:stage)}"
         end
+        within "#{fetch(:deploy_to)}/current/sign_js" do
+          execute "npm install --save bitcoinjs-lib@1.5.8"
+        end
       else
         within "#{fetch(:deploy_to)}/current/" do
           execute :bundle, :exec, :"puma -C config/puma.rb -e #{fetch(:stage)}"
