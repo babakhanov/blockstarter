@@ -25,5 +25,6 @@ en:
       name: "Ticket Name"
       profit_margin: "Profit Margin, %"
       wif_id: "Address"
+      asset_id: "Asset ID"
     helpers:
       submit: "Submit"
