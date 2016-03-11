@@ -2,8 +2,8 @@
   .gtr-b-sm
     .text-lg
       .text-lg My Tickets
-  .text-line(ng-if="ready && user")
-    %create-ticket-form
+  .text-line(ng-if="user")
+    %create-ticket-form(tickets="tickets")
   .text-line
     .gtr-b-sm(ng-repeat="(key, ticket) in tickets track by $index")
       .box-ticket.bg-white(ng-init="formShown=false")

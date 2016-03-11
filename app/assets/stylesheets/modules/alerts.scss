@@ -1,0 +1,9 @@
+.alert {
+  margin: 0;
+  border-radius: 0;
+  margin-bottom: 0;
+  &-container {
+    float: left;
+    width: 100%;
+  }
+}

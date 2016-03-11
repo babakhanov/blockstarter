@@ -18,6 +18,7 @@ controller = ($scope, Auth, $location, $rootScope) ->
     Auth.logout().then ((oldUser) ->
       $rootScope.user = undefined
       $location.path '/#/'
+      App.Alert.show "info", I18n.t("js.users.signed_out")
     ), (error) ->
 
 angular.module "app.core"

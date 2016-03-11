@@ -24,6 +24,6 @@ class Api::AssetsController < ApiController
   private
 
   def asset_params
-    params.require(:asset).permit(:name, :amount, :issuer, :description, :picture, :company_name, :address, :sale_margin)
+    params.require(:asset).permit(:name, :amount, :fee, :issuer, :description, :picture, :company_name, :address, :profit_margin)
   end
 end
