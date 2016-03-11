@@ -12,3 +12,18 @@ en:
       signed_out: "Successfully signed out"
       have_account: "Have an account?"
       have_no_account: "Don't have an account?"
+      signed_in: "Successfully signed in"
+      signed_out: "Successfully signed out"
+      signed_up: "Successfully signed up"
+    tickets:
+      amount: "Amount"
+      company_name: "Company Name"
+      create: "Create a New Ticket"
+      description: "Description"
+      fee: "Fee"
+      issuer: "Issuer"
+      name: "Ticket Name"
+      profit_margin: "Profit Margin, %"
+      wif_id: "Address"
+    helpers:
+      submit: "Submit"

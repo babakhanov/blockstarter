@@ -1,12 +1,23 @@
 directive = ->
   restrict: "E"
   templateUrl: "tickets/create_ticket_form.html"
-  controller: ["$scope", ($scope) ->
+  scope:
+    tickets: "="
+  controller: ["$scope", "$rootScope", ($scope, $rootScope) ->
+
+    $scope.initForm = ->
+      $scope.newTicket = 
+        issuer: $rootScope.user.email
+        fee: 5000
+
+    $scope.createTicket = (data) ->
+      CRUD.create "assets", asset: data, (response) ->
+        $scope.tickets.unshift response.asset
+        $scope.initForm()
   ]
   link: (scope) ->
-    scope.newTicket = 
-      issuer: scope.user.email
-      fee: 5000
+    scope.initForm()
+
 
 angular.module "app.tickets"
   .directive "createTicketForm", [directive]

@@ -9,7 +9,7 @@ html, body {
 } 
 .header {
   height: $header-height;
-  position: fixed;
+  position: absolute;
   left: 0;
   top: 0;
   right: 0;
@@ -25,7 +25,23 @@ html, body {
   }
 }
 .content {
-  padding: $header-height 0 0 0;
-  display: inline-block;
+  padding: 0 0 0 0;
+  display: block;
   width: 100%;
+  float: left;
+  height: 100%;
+  overflow: auto;
+  &:before {
+    content: '';
+    display: block;
+    height: $header-height;
+    width: 100%;
+  }
 }
+.main {
+  display: block;
+  float: left;
+  width: 100%;
+  height: 100%;
+  position: relative;
+} 
