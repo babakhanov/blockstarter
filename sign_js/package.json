@@ -1,1 +1,1 @@
-{"dependencies":["bitcoinjs-lib"]}
+{"dependencies":{"bitcoinjs-lib": "1.5.8"}}
