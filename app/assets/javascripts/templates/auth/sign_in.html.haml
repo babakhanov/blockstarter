@@ -1,0 +1,24 @@
+.gtr-b
+  .text-md {{::"js.users.sign_in" | translate}}
+.text-center  
+  .sign-form.text-left
+    .alert.alert-danger(ng-if="error")
+      {{error.statusText}}
+    %form(name="signForm")
+      %label.form-label.required
+        .form-label-text {{::'js.users.email' | translate}}
+        %input.form-control(autofocus="true" name="email" type="email" required ng-model="signData.email")
+      %label.form-label.required
+        .form-label-text {{::'js.users.password' | translate}}
+        %input.form-control(type="password" autocomplete="off" required name="password" ng-model="signData.password" ng-minlength="4" ng-pattern="/^[a-zA-Z0-9]+/")
+      .row.gtr-t-sm.text-sm.font-bold
+        .col-xs-6
+          %label.form-checkbox
+            %input(ng-model="signData.remember_me" type="checkbox")
+            %span {{::"js.users.remember_me" | translate}}
+      .gtr-t-xs
+        %button.btn.btn-primary.btn-block(ng-disabled="!signForm.$valid" ng-click="signIn()")
+          .font-bold.text-sm {{::'js.users.enter' | translate}}
+.gtr-t
+  {{::"js.users.have_no_account" | translate}}
+  %a(ng-href='/#/sign_up') {{::"js.users.sign_up" | translate}}

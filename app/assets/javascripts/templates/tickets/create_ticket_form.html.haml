@@ -1,0 +1,38 @@
+.box-ticket.bg-white
+  .gtr-hor.gtr-ver
+    %form(name="newTicketForm")
+      .clearfix
+        %label.form-label.required
+          .form-label-text {{::'js.ticket.name' | translate}}
+          %input.form-control(type="text" required ng-model="newTicket.name")
+      .row
+        .col-xs-6
+          %label.form-label.required
+            .form-label-text {{::'js.ticket.company_name' | translate}}
+            %input.form-control(type="text" required ng-model="newTicket.company_name")
+        .col-xs-6
+          %label.form-label.required
+            .form-label-text {{::'js.ticket.issuer' | translate}}
+            %input.form-control(type="text" required ng-model="newTicket.issuer")
+      .clearfix
+        %label.form-label.required
+          .form-label-text {{::'js.ticket.description' | translate}}
+          %input.form-control(type="text" required ng-model="newTicket.description")
+      .row
+        .col-xs-4
+          %label.form-label.required
+            .form-label-text {{::'js.ticket.amount' | translate}}
+            %input.form-control(type="number" required ng-model="newTicket.amount")
+        .col-xs-4
+          %label.form-label.required
+            .form-label-text {{::'js.ticket.fee' | translate}}
+            %input.form-control(type="number" required ng-model="newTicket.fee")
+        .col-xs-4
+          %label.form-label.required
+            .form-label-text {{::'js.ticket.profit_margin' | translate}}
+            %input.form-control(type="number" required ng-model="newTicket.profit_margin")
+      .clearfix
+        %label.form-label.required
+          .form-label-text {{::'js.ticket.wif_id' | translate}}
+          %select.form-control
+            %option(value="1")

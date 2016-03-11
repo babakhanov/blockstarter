@@ -1,0 +1,30 @@
+.gtr-b
+  .text-md {{::"js.users.sign_up" | translate}}
+.text-center  
+  .sign-form.text-left
+    .text-left
+      .alert.alert-danger(ng-if="error")
+        {{error.statusText}}
+      %form(name="signForm")
+
+        %label.form-label.required(ng-class="{'has-error': errors.email}")
+          .form-label-text {{::'js.users.email' | translate}}
+          %input.form-control(autofocus="true" name="email" type="email" required ng-model="signData.email")
+          .clearfix(ng-repeat="error in errors.email")
+            .help-block
+              {{error}}
+        .row
+          .col-xs-6
+            %label.form-label.required
+              .form-label-text {{::'js.users.password' | translate}}
+              %input.form-control(type="password" autocomplete="off" required name="password" ng-model="signData.password" ng-minlength="8" ng-pattern="/^[a-zA-Z0-9]+/")
+          .col-xs-6
+            %label.form-label.required
+              .form-label-text {{::'js.users.confirm_password' | translate}}
+              %input.form-control(type="password" autocomplete="off" required name="passwordConfirmation" ng-model="signData.password_confirmation" match="signForm.password")
+        .text-center.gtr-t
+          %button.btn.btn-primary.btn-block(type="submit" ng-disabled="!signForm.$valid" ng-click="signUp()")
+            .font-bold.text-sm {{::'js.users.sign_up' | translate}}
+.gtr-t
+  {{::"js.users.have_account" | translate}}
+  %a(ng-href='/#/sign_in') {{::"js.users.sign_in" | translate}}

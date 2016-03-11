@@ -1,0 +1,14 @@
+en:
+  js:
+    users:
+      confirm_password: 'Confirm Password'
+      email: "Email"
+      enter: "Enter"
+      forgot_a_password: "Forgot Password?"
+      password: "Password"
+      remember_me: "Remember me"
+      sign_in: "Sign In"
+      sign_up: 'Sign Up'
+      signed_out: "Successfully signed out"
+      have_account: "Have an account?"
+      have_no_account: "Don't have an account?"

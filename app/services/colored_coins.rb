@@ -4,6 +4,7 @@ require 'bitcoin'
 class ColoredCoins
 
   def initialize(network=:mainnet, api_v="v3")
+    Bitcoin.network = network
     @network = network.to_sym
     @api_v = api_v
   end
@@ -16,6 +17,10 @@ class ColoredCoins
     make_request(api_url(:broadcast), {txHex: tx_hex}) 
   end
 
+  def get_address(wif)
+    Bitcoin::pubkey_to_address(Bitcoin::Key.from_base58(wif).pub)
+  end
+
   def sign(key, tx_hex)
     `node #{Rails.root.to_s}/sign_js/sign.js #{tx_hex.chomp} #{key.chomp}`.chomp
   end
@@ -24,7 +29,7 @@ class ColoredCoins
 
   def api_url(endpoint="")
     { mainnet: "http://api.coloredcoins.org:80/#{@api_v}/#{endpoint.to_s}",
-      testnet: "http://testnet.api.coloredcoins.org:80/#{@api_v}/#{endpoint.to_s}"
+      testnet3: "http://testnet.api.coloredcoins.org:80/#{@api_v}/#{endpoint.to_s}"
     }[@network]
   end
 

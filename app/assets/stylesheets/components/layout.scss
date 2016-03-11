@@ -15,7 +15,17 @@ html, body {
   right: 0;
   background: rgb(111, 148, 187);
   z-index: 1;
+  color: rgba(white, 0.9);
+  a {
+    color: rgba(white, 0.9);
+    text-decoration: none;
+    &:hover {
+      color: white;
+    }
+  }
 }
 .content {
   padding: $header-height 0 0 0;
+  display: inline-block;
+  width: 100%;
 }
