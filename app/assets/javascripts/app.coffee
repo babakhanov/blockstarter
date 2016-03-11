@@ -1,10 +1,14 @@
 //= require ./core/core
+//= require ./auth/auth
 //= require ./tickets/tickets
 //= require ./shared/shared
 
 angular.module "app", [
   "ngRoute",
   "templates"
+  "Devise"
+  "ngSanitize"
+  "pascalprecht.translate"
   "mgcrea.ngStrap.core"
   "mgcrea.ngStrap.helpers.dimensions"
   "mgcrea.ngStrap.modal"
@@ -13,7 +17,14 @@ angular.module "app", [
   "mgcrea.ngStrap.helpers.dateFormatter"
   "mgcrea.ngStrap.datepicker"
   "app.core"
+  "app.auth"
   "app.tickets"
   "app.shared"
 ]
 
+angular.module "app"
+  .config [ "$translateProvider", ($translateProvider) ->
+    $translateProvider.preferredLanguage(I18n.locale);
+    $translateProvider.useSanitizeValueStrategy "sanitize"
+    $translateProvider.translations I18n.locale, I18n.translations[I18n.locale]
+  ]

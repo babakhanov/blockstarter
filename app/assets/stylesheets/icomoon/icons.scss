@@ -1,6 +1,16 @@
+.#{$icomoon-prefix}-user { 
+  &:before {
+    content: $icon-user;
+  }
+}
 .#{$icomoon-prefix}-close { 
   &:before {
     content: $icon-close;
+  }
+}
+.#{$icomoon-prefix}-sign-out { 
+  &:before {
+    content: $icon-sign-out;
   }
 }
 .#{$icomoon-prefix}-paper-plane { 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160309114614) do
+ActiveRecord::Schema.define(version: 20160311123004) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,14 +23,15 @@ ActiveRecord::Schema.define(version: 20160309114614) do
     t.string   "picture"
     t.string   "company_name"
     t.string   "address"
-    t.decimal  "sale_margin"
+    t.decimal  "profit_margin"
     t.integer  "amount"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "user_id"
     t.integer  "wif_id"
     t.string   "tx_id"
-    t.boolean  "is_issued",    default: false, null: false
+    t.boolean  "is_issued",     default: false, null: false
+    t.integer  "fee"
   end
 
   add_index "assets", ["user_id"], name: "index_assets_on_user_id", using: :btree

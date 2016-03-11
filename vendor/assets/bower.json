@@ -3,6 +3,9 @@
   "dependencies": {
     "angular": "latest",
     "angular-strap": "latest",
-    "angular-route": "latest"
+    "angular-route": "latest",
+    "angular-devise": "latest",
+    "angular-translate": "latest",
+    "angular-sanitize": "latest"
   }
 }
