@@ -1,0 +1,14 @@
+# https://drive.google.com/open?id=0B8bnPiuJFaOWWldfOVFlVTNMWUU
+
+default: &default
+  adapter: postgresql
+  pool: 5
+  encoding: unicode
+  timeout: 5000
+  host: localhost
+  username: deployer
+
+production:
+  <<: *default
+  database: blockstarter_production
+  password: ''
