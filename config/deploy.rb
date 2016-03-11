@@ -6,8 +6,8 @@ set :keep_releases, 5
 set :pty, true
 set :repo_url, 'git@bitbucket.org:parkstation/colorcoin.git'l
 
-set :deploy_to, '/home/deployer/sites/parkstation'
-set :rvm_ruby_version, 'ruby-2.2.3@parkstation --create'
+set :deploy_to, '/home/deployer/sites/blockstarter'
+set :rvm_ruby_version, 'ruby-2.2.3@blockstarter --create'
 
 set :linked_files, %w(config/database.yml config/application.yml)
 set :linked_dirs, %w(log tmp public/uploads public/system)
