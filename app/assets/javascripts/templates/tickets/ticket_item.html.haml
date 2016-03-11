@@ -1,0 +1,20 @@
+.box-ticket.bg-white(ng-init="formShown=false")
+  .clearfix(ng-show="!formShown")
+    .tbl
+      .tbl-cell.cell-8.align-top
+        .gtr-hor-sm.gtr-ver-sm
+          %b.text-md {{ticket.name}}
+          .gtr-t-sm.text-sm
+            .tbl
+              .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.amount" | translate}}
+              .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.amount}}
+            .tbl
+              .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.asset_id" | translate}}
+              .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.id}}
+            .tbl
+              .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.issuer" | translate}}
+              .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.issuer}}
+            .tbl
+              .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.profit_margin" | translate}}
+              .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.profit_margin}}
+

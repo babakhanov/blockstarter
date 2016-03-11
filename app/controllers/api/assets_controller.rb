@@ -1,5 +1,6 @@
 class Api::AssetsController < ApiController
   def index
+    @assets = @assets.order(created_at: :desc)
     respond_with @assets
   end
 
