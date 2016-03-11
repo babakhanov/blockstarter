@@ -12,6 +12,10 @@ set :rvm_ruby_version, 'ruby-2.2.3@blockstarter --create'
 set :linked_files, %w(config/database.yml config/application.yml)
 set :linked_dirs, %w(log tmp public/uploads public/system)
 
+set :npm_target_path, -> { release_path.join('sign_js') } # default not set
+set :npm_flags, '--production --silent --no-progress'    # default
+set :npm_roles, :all                                     # default
+set :npm_env_variables, {}   
 
 namespace :deploy do
   desc 'Setup production'
@@ -45,9 +49,6 @@ namespace :deploy do
 	within release_path do
 	  execute :rake, 'bower:install CI=true'
 	end
-        within "#{fetch(:deploy_to)}/current/sign_js" do
-          execute "npm install"
-        end
       end
     end
   end
