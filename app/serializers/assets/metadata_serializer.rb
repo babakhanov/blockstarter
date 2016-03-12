@@ -1,8 +1,8 @@
 class Assets::MetadataSerializer < ::ApiSerializer
-  attributes :assetId, :assetName, :issuer, :description, :urls
+  attributes :assetId, :assetName, :issuer, :description, :urls, :userData
 
   def assetId
-    object.id
+    object.id.to_s
   end
 
   def assetName
@@ -11,6 +11,18 @@ class Assets::MetadataSerializer < ::ApiSerializer
 
   def urls
     [picture().merge(name: :icon, dataHash: '')]
+  end
+
+  def userData
+    meta = [
+      { key: "Item ID",   value: object.id,   type: "Number" },
+      { key: "Item Name", value: object.name, type: "String" },
+    
+    ]
+    meta << {key: "Company", value: object.company_name, type: "String"} if object.company_name
+    meta << {key: "Address", value: object.address,      type: "String"} if object.address
+
+    { meta: meta }
   end
 
   private

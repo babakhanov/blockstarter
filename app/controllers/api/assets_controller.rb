@@ -30,7 +30,13 @@ class Api::AssetsController < ApiController
 
   def issue
     @asset = Asset.find(params[:asset_id])
-    respond_with serialize_object(@asset, ::Assets::IssueSerializer)
+    data = @asset.issue
+    unless data[:error]
+      @asset.broadcast
+      respond_with @asset 
+    else
+      respond_with data
+    end
   end
 
   private

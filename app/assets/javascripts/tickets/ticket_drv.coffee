@@ -1,13 +1,27 @@
 directive = ->
   restrict: "E"
   templateUrl: "tickets/ticket_item.html"
-  controller: ["$scope", "$modal", ($scope, $modal) ->
+  controller: ["$scope", "$modal", "$http", ($scope, $modal, $http) ->
 
     $scope.confirmModal = $modal
       templateUrl: "tickets/confirm_remove_modal.html"
       container: "body"
       show: false
       scope: $scope
+
+    $scope.issueAsset = (asset) ->
+      $http(
+        method: 'GET'
+        url: "/api/assets/#{asset.id}/issue"
+      ).then ((response) ->
+        if !response.data.error
+          $scope.ticket = response.data.asset
+          App.Alert.show "success", I18n.t("js.tickets.successfully_issued")
+        else
+          App.Alert.show "danger", response.data.error
+      ), (response) ->
+        App.Alert.show "danger", I18n.t("js.info.something_went_wrong")
+
 
     $scope.removeAsset = (asset, index) ->
       $scope.confirmModal.hide()
