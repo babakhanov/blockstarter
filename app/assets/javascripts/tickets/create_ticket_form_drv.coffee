@@ -10,8 +10,9 @@ directive = ->
         $scope.initForm()
 
     $scope.initForm = ->
-      $scope.newTicket = 
-        issuer: $rootScope.user.email
+      $scope.newTicket =
+        issuer: $rootScope.user.name
+        company_name: $rootScope.user.company_name
         fee: 5000
 
   ]

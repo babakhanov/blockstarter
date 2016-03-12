@@ -1,6 +1,7 @@
 //= require ./core/core
 //= require ./auth/auth
 //= require ./tickets/tickets
+//= require ./settings/settings
 //= require ./shared/shared
 
 angular.module "app", [
@@ -21,6 +22,7 @@ angular.module "app", [
   "app.auth"
   "app.tickets"
   "app.shared"
+  "app.settings"
 ]
 
 angular.module "app"
