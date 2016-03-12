@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'http://community.opscode.com/api/v1'
+
+cookbook 'runit'
+cookbook 'users'
+cookbook 'sudo'
+cookbook 'chef-solo-search'
+cookbook 'vsftpd'
+
+cookbook 'nginx'
+cookbook 'nodejs'
+cookbook 'monit'
+cookbook 'openssh', '~> 1.5.2'
+cookbook 'ufw'
+
+cookbook 'rvm',
+  :git => 'https://github.com/fnichol/chef-rvm'
+
+cookbook 'postgresql',
+  :git => 'https://github.com/phlipper/chef-postgresql.git'
+
+cookbook 'redis',
+  :git => 'https://github.com/phlipper/chef-redis.git'
+
+cookbook 'imagemagick'
+cookbook 'swap_tuning'

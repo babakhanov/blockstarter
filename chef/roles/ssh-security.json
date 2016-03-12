@@ -1,0 +1,24 @@
+{
+  "name": "ssh-security",
+  "description": "A role to tighten ssh security of server",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+  },
+  "override_attributes": {
+    "openssh": {
+      "server": {
+        "allow_agent_forwarding": "yes",
+        "allow_tcp_forwarding": "no",
+        "login_grace_time": "30s",
+        "password_authentication": "no",
+        "permit_root_login": "no",
+        "rsa_authentication": "no"
+      }
+    }
+  },
+  "chef_type": "role",
+  "run_list": [
+    "recipe[openssh]"
+  ],
+  "env_run_lists": {}
+}

@@ -1,0 +1,16 @@
+{
+  "name": "redis",
+  "description": "A role to install redis",
+  "json_class": "Chef::Role",
+  "default_attributes": {
+    "redis": {
+      "maxmemory": "256Mb"
+    }
+  },
+  "override_attributes": {},
+  "chef_type": "role",
+  "run_list": [
+    "recipe[redis::server]"
+  ],
+  "env_run_lists": {}
+}

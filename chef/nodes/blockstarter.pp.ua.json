@@ -1,0 +1,6 @@
+{
+  "name": "blockstarter.pp.ua",
+  "type": "node",
+  "ipaddress": "185.86.78.71",
+  "run_list": ["role[base]" ]
+}
