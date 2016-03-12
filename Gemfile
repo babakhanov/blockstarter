@@ -25,6 +25,7 @@ gem 'devise'
 gem 'ffi'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'dotenv'
 
 group :development, :test do
   gem 'byebug'

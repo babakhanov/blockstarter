@@ -28,9 +28,14 @@ class Api::AssetsController < ApiController
     end
   end
 
+  def issue
+    @asset = Asset.find(params[:asset_id])
+    respond_with serialize_object(@asset, ::Assets::IssueSerializer)
+  end
+
   private
 
   def asset_params
-    params.require(:asset).permit(:name, :amount, :fee, :issuer, :description, :picture, :company_name, :address, :profit_margin)
+    params.require(:asset).permit(:wif_id, :name, :amount, :fee, :issuer, :description, :picture, :company_name, :address, :profit_margin)
   end
 end

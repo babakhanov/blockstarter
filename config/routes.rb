@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   root 'pages#index'
   namespace :api, defaults: { format: :json } do
-    resources :assets
+    resources :assets do
+      get :issue, to: "assets#issue"
+    end
   end
 end

@@ -1,4 +1,4 @@
-class Api::AssetSerializer < ActiveModel::Serializer  
+class Api::AssetSerializer < ::ApiSerializer  
   attributes :id, :state, :name, :issuer, :picture_url, :description, :picture, :company_name, :profit_margin, :amount, :tx_id, :is_issued
   def state
     if !object.is_issued 
