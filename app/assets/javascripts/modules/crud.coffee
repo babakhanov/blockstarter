@@ -22,4 +22,4 @@
     $.ajax(ajax(path, "PATCH", data)).done(success)
 
   @remove = (path, id, success) ->
-    $.ajax(ajax(path, "DELETE", data)).done(success)
+    $.ajax(ajax("#{path}/#{id}", "DELETE", "")).done(success)
