@@ -26,5 +26,8 @@ en:
       profit_margin: "Profit Margin, %"
       wif_id: "Address"
       asset_id: "Asset ID"
+      issue_asset: "Issue this asset"
+      upload_picture: "Upload a picture"
     helpers:
       submit: "Submit"
+      delete: "Delete"

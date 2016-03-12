@@ -1,0 +1,7 @@
+.gutter-vertical-2x
+  -File.open(Rails.root.join('app', 'assets', 'stylesheets', 'icomoon', 'variables.scss').to_s).each do |l|
+    - if l =~ (/^\$icon-(\S+):.+$/)
+      .text-line.col-xs-2.text-center
+        .bg-white.jcarousel-wrapper
+          .gutter-vertical= icon $1
+          .gutter-top-sm=$1

@@ -8,6 +8,7 @@ angular.module "app", [
   "templates"
   "Devise"
   "ngSanitize"
+  "ngFileUpload"
   "pascalprecht.translate"
   "mgcrea.ngStrap.core"
   "mgcrea.ngStrap.helpers.dimensions"

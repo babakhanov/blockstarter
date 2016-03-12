@@ -3,17 +3,17 @@ directive = ->
   templateUrl: "tickets/create_ticket_form.html"
   scope:
     tickets: "="
-  controller: ["$scope", "$rootScope", ($scope, $rootScope) ->
+  controller: ["$scope", "$rootScope", "Upload", ($scope, $rootScope, Upload) ->
+    $scope.createTicket = ->
+      Upload.upload(url: '/api/assets', data: {asset: $scope.newTicket}, method: 'POST').then (response) ->
+        $scope.tickets.unshift response.data.asset
+        $scope.initForm()
 
     $scope.initForm = ->
       $scope.newTicket = 
         issuer: $rootScope.user.email
         fee: 5000
 
-    $scope.createTicket = (data) ->
-      CRUD.create "assets", asset: data, (response) ->
-        $scope.tickets.unshift response.asset
-        $scope.initForm()
   ]
   link: (scope) ->
     scope.initForm()

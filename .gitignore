@@ -5,3 +5,5 @@
 /tmp
 colu/node_modules
 sign_js/node_modules
+public/uploads
+.byebug_history
