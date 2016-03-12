@@ -4,6 +4,8 @@ en:
       confirm_password: 'Confirm Password'
       email: "Email"
       enter: "Enter"
+      name: "Name"
+      update: "Update your account"
       forgot_a_password: "Forgot Password?"
       password: "Password"
       remember_me: "Remember me"
