@@ -5,7 +5,7 @@
   .text-line(ng-if="user")
     %create-ticket-form(tickets="tickets")
   .text-line
-    .gtr-b-sm(ng-repeat="(key, ticket) in tickets track by $index")
+    .gtr-b-sm(ng-repeat="(key, ticket) in tickets track by ticket.id")
       %ticket
 
           

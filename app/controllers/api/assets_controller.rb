@@ -1,6 +1,6 @@
 class Api::AssetsController < ApiController
   def index
-    @assets = @assets.order(created_at: :desc)
+    @assets = @assets.where(user_id: current_user.id).order(created_at: :desc)
     respond_with @assets
   end
 
@@ -9,7 +9,7 @@ class Api::AssetsController < ApiController
   end
 
   def create
-    @asset = Asset.new asset_params
+    @asset = current_user.assets.new asset_params
     if @asset.save
       render json: @asset
     end
@@ -19,6 +19,12 @@ class Api::AssetsController < ApiController
     @asset = Asset.find(params[:id])
     if @asset.update asset_params
       respond_with @asset
+    end
+  end
+
+  def destroy
+    if @asset.delete
+      render json: {id: params[:id]}
     end
   end
 

@@ -1,0 +1,9 @@
+.modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4 {{::"js.helpers.are_you_sure" | translate}}
+      .modal-body {{::"js.tickets.confirm_to_remove" | translate}}
+      .modal-footer
+        %button.btn.btn-default(ng-click='$hide()') {{::"js.helpers.cancel" | translate}}
+        %button.btn.btn-danger(ng-click='removeAsset(ticket, $index)') {{::"js.helpers.delete" | translate}}

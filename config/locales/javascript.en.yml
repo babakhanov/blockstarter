@@ -28,6 +28,10 @@ en:
       asset_id: "Asset ID"
       issue_asset: "Issue this asset"
       upload_picture: "Upload a picture"
+      was_removed: "Ticket was successfully removed"
+      confirm_to_remove: "Are you sure you want to remove this ticket?"
     helpers:
       submit: "Submit"
       delete: "Delete"
+      are_you_sure: "Are you sure?"
+      cancel: "Cancel"
