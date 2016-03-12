@@ -8,6 +8,16 @@
     content: $icon-close;
   }
 }
+.#{$icomoon-prefix}-image { 
+  &:before {
+    content: $icon-image;
+  }
+}
+.#{$icomoon-prefix}-trash { 
+  &:before {
+    content: $icon-trash;
+  }
+}
 .#{$icomoon-prefix}-sign-out { 
   &:before {
     content: $icon-sign-out;

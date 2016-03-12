@@ -13,6 +13,7 @@
 //= require angular-strap/dist/modules/tooltip
 //= require angular-strap/dist/modules/datepicker
 //= require angular-sanitize/angular-sanitize
+//= require ng-file-upload/ng-file-upload-all
 //= require angular-strap/dist/modules/datepicker.tpl
 //= require angular-translate/angular-translate
 //= require angular-devise/lib/devise

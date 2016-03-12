@@ -3,24 +3,35 @@
     .gtr-b-sm
       .gtr-b-sm.text-lg.border-b.border-light.row.gtr-hor {{::"js.tickets.create" | translate}}
     %form(name="newTicketForm")
-      .clearfix
-        %label.form-label.required
-          .form-label-text {{::'js.tickets.name' | translate}}
-          %input.form-control(type="text" required ng-model="newTicket.name")
-      .row
-        .col-xs-6
-          %label.form-label.required
-            .form-label-text {{::'js.tickets.company_name' | translate}}
-            %input.form-control(type="text" required ng-model="newTicket.company_name")
-        .col-xs-6
-          %label.form-label.required
-            .form-label-text {{::'js.tickets.issuer' | translate}}
-            %input.form-control(type="text" required ng-model="newTicket.issuer")
-      .clearfix
-        %label.form-label.required
-          .form-label-text {{::'js.tickets.description' | translate}}
-          %input.form-control(type="text" required ng-model="newTicket.description")
-      .row
+      .row.gtr-b
+        .col-xs-4
+          .bg-light.box-ticket.ticket-icon(ngf-select="" ng-model="newTicket.picture" name="file" accept="image/*") 
+            .tbl
+              .tbl-cell.align-middle.cursor-pointer.text-center
+                %span(ng-if='!newTicket.picture')
+                  .clearfix.head-md=icon :image
+                  .clearfix {{::'js.tickets.upload_picture' | translate}}
+                %span(ng-if="newTicket.picture")
+                  %img(ngf-src="newTicket.picture")
+        .col-xs-8
+          .clearfix
+            %label.form-label.required
+              .form-label-text {{::'js.tickets.name' | translate}}
+              %input.form-control(type="text" required ng-model="newTicket.name")
+          .row
+            .col-xs-6
+              %label.form-label.required
+                .form-label-text {{::'js.tickets.company_name' | translate}}
+                %input.form-control(type="text" required ng-model="newTicket.company_name")
+            .col-xs-6
+              %label.form-label.required
+                .form-label-text {{::'js.tickets.issuer' | translate}}
+                %input.form-control(type="text" required ng-model="newTicket.issuer")
+          .clearfix
+            %label.form-label.required
+              .form-label-text {{::'js.tickets.description' | translate}}
+              %input.form-control(type="text" required ng-model="newTicket.description")
+      .row.gtr-t.border-t.border-light
         .col-xs-4
           %label.form-label.required
             .form-label-text {{::'js.tickets.amount' | translate}}
@@ -37,7 +48,7 @@
         %label.form-label.required
           .form-label-text {{::'js.tickets.wif_id' | translate}}
           %select.form-control(ng-model="newTicket.wif_id")
-            %option(ng-repeat="wif in user.wifs track by wif.id" ng-value="wif.id") {{wif.address}}
+            %option(ng-repeat="wif in $root.user.wifs track by wif.id" ng-value="wif.id") {{wif.address}}
       .clearfix
         .row.gtr-t-sm
           .col-xs-4.pull-right

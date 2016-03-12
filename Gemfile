@@ -23,6 +23,8 @@ gem 'puma', '~> 2.14.0'
 gem 'i18n-js', '>= 3.0.0.rc11'
 gem 'devise'
 gem 'ffi'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug'
