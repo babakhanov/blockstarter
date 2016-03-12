@@ -1,4 +1,4 @@
-class Api::WifSerializer < ActiveModel::Serializer
+class Api::WifSerializer < ::ApiSerializer
   attributes :id, :address
 
   def address

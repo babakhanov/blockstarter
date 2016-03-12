@@ -18,6 +18,10 @@
             %label.form-label.required
               .form-label-text {{::'js.tickets.name' | translate}}
               %input.form-control(type="text" required ng-model="newTicket.name")
+          .clearfix
+            %label.form-label.required
+              .form-label-text {{::'js.tickets.address' | translate}}
+              %input.form-control(type="text" required ng-model="newTicket.address")
           .row
             .col-xs-6
               %label.form-label.required

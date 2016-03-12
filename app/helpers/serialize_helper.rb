@@ -8,8 +8,7 @@ module SerializeHelper
     serializer ||= [object.class.name, 'Serializer'].join().constantize
 
     serializer.new(object).as_json(
-      root: false,
-      user: current_user
+      root: false
     )
   end
 end
