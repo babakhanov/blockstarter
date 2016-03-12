@@ -4,4 +4,7 @@ class ApiController < ApplicationController
   skip_before_action :verify_authenticity_token if Rails.env == "development"
   include SerializeHelper
 
+  def cur_user
+    current_user || User.new
+  end
 end

@@ -1,6 +1,6 @@
 class Api::AssetsController < ApiController
   def index
-    @assets = @assets.where(user_id: current_user.id).order(created_at: :desc)
+    @assets = cur_user.assets.order(created_at: :desc)
     respond_with @assets
   end
 

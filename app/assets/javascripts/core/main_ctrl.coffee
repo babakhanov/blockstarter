@@ -1,6 +1,10 @@
 controller = ($scope, Auth, $location, $rootScope) ->
+  redirectToLogin = ->
+    $location.path '/sign_in' 
+    $scope.apply() unless $scope.$$phase
 
   if window.anonimusUser
+    redirectToLogin() unless $location.path() == "/sign_in"
     $scope.ready = true
     $scope.isAuthenticated = false
     $rootScope.user = null
@@ -10,6 +14,8 @@ controller = ($scope, Auth, $location, $rootScope) ->
       $scope.isAuthenticated = true
       $scope.ready = true
       $rootScope.user = response.user
+      if !response.user.id
+        redirectToLogin() unless $location.path() == "/sign_in"
     ), (error) ->
       $scope.ready = true
   $scope.$apply() unless $scope.$$phase
