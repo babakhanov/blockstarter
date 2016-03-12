@@ -1,0 +1,39 @@
+upstream blockstarter.pp.ua {
+  server unix:/home/deployer/sites/blockstarter/shared/tmp/sockets/puma.sock;
+}
+
+server {
+  listen 80;
+  server_name blockstarter.pp.ua www.blockstarter.pp.ua;
+
+  access_log  /var/log/nginx/blockstarter.pp.ua-access.log;
+  error_log /var/log/nginx/blockstarter.pp.ua-error.log;
+
+  root /home/deployer/sites/blockstarter/current/public;
+
+  location ~* ^.*\-.*$
+  {
+    rewrite ^(.*)?\-.*$ http://blockstarter.pp.ua$1.html permanent;
+  }
+
+  location ^~ /assets/ {
+    gzip_static on;
+    expires max;
+    add_header Cache-Control public;
+  }
+
+  try_files $uri/index.html $uri @blockstarter.pp.ua;
+
+  location @blockstarter.pp.ua {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_pass http://blockstarter.pp.ua;
+  }
+
+  error_page 500 502 503 504 /500.html;
+  client_max_body_size 10M;
+  keepalive_timeout 10;
+
+}
+
