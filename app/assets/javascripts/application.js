@@ -4,6 +4,7 @@
 //= require i18n/translations
 //= require angular/angular
 //= require angular-route/angular-route
+//= require underscore/underscore
 //= require angular-rails-templates
 //= require angular-strap/dist/modules/compiler
 //= require angular-strap/dist/modules/dimensions

@@ -1,35 +1,38 @@
 .box-ticket.bg-white(ng-init="formShown=false")
-  .clearfix(ng-show="!formShown")
-    .tbl
-      .tbl-cell.cell-8.align-top
-        .gtr-hor-sm.gtr-ver-sm
-          .row
-            .col-xs-8
+  .row
+    .col-xs-8
+      .tbl
+        .tbl-cell.cell-8.align-top
+          .gtr-hor-sm.gtr-ver-sm
+            .clearfix
               %b.text-md {{ticket.name}}
-            .col-xs-4.text-right
-              {{ticket.state}}
-          .gtr-t-sm.text-sm
-            .tbl
-              .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.amount" | translate}}
-              .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.amount}}
-            .tbl
-              .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.asset_id" | translate}}
-              .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.id}}
-            .tbl
-              .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.description" | translate}}
-              .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.description}}
-            .tbl
-              .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.profit_margin" | translate}}
-              .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.profit_margin}}
-            .tbl
-              .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.issuer" | translate}}
-              .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.issuer}}
-            .tbl
-              .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.company_name" | translate}}
-              .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.company_name}}
+            .gtr-t-sm.text-sm
+              .tbl
+                .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.amount" | translate}}
+                .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.amount}}
+              .tbl
+                .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.asset_id" | translate}}
+                .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.id}}
+              .tbl
+                .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.description" | translate}}
+                .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.description}}
+              .tbl
+                .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.profit_margin" | translate}}
+                .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.profit_margin}}
+              .tbl
+                .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.issuer" | translate}}
+                .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.issuer}}
+              .tbl
+                .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.company_name" | translate}}
+                .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.company_name}}
+    .col-xs-4.text-right(ng-if="ticket.picture_url")
+      .gtr-hor.gtr-ver
+        .gtr-b-xs
+          {{ticket.state}}
+        %img(ng-src="{{ticket.picture_url}}") 
   .gtr-b.text-right.gtr-hor
     %span(ng-if="!ticket.is_issued")
       %button.btn.btn-default(ng-click="issueAsset(ticket.id)") 
         {{::"js.tickets.issue_asset" | translate}}
         = icon :paper_plane, class: 'text-sm'
-      %button.btn.btn-danger(ng-click="removeAsset(ticket.id)" title="{{::'js.helpers.delete' | translate}}")=icon :trash
+      %button.btn.btn-danger(ng-click="confirmModal.show()" title="{{::'js.helpers.delete' | translate}}")=icon :trash

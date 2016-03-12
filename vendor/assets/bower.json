@@ -7,6 +7,7 @@
     "angular-devise": "latest",
     "angular-translate": "latest",
     "angular-sanitize": "latest",
-    "ng-file-upload": "latest"
+    "ng-file-upload": "latest",
+    "underscore": "latest"
   }
 }
