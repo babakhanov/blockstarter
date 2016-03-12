@@ -13,3 +13,4 @@ chef/Cheffile.lock
 /config/database.yml
 .ruby-gemset
 .ruby-version
+.env.development
