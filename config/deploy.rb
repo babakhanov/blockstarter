@@ -4,7 +4,7 @@ set :use_sudo, false
 set :deploy_via, :copy
 set :keep_releases, 5
 set :pty, true
-set :repo_url, 'git@bitbucket.org:parkstation/colorcoin.git'
+set :repo_url, 'git@bitbucket.org:cryptotickets_team2/blockstarter.git'
 
 set :deploy_to, '/home/deployer/sites/blockstarter'
 set :rvm_ruby_version, 'ruby-2.2.3@blockstarter --create'
