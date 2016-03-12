@@ -10,4 +10,6 @@ public/uploads
 chef/cookbooks
 chef/tmp
 chef/Cheffile.lock
-
+/config/database.yml
+.ruby-gemset
+.ruby-version
