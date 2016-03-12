@@ -2,17 +2,20 @@
   .gtr-hor.gtr-ver
     .gtr-b-sm
       .gtr-b-sm.text-lg.border-b.border-light.row.gtr-hor {{::"js.users.update" | translate}}
-    %form(name="userSettings")
-      .row
-        .col-xs-6
-          %label.form-label
+    %form.row(name="userSettings")
+      .tbl
+        .tbl-cell.cell-3.gtr-hor.align-bottom
+          %label.form-label.required
             .form-label-text {{::'js.users.name' | translate}}
-            %input.form-control(type="text" ng-model="$root.user.name")
-        .col-xs-6
-          %label.form-label
+            %input.form-control(type="text" required ng-model="$root.user.name")
+        .tbl-cell.cell-3.gtr-hor.align-bottom
+          %label.form-label.required
             .form-label-text {{::'js.tickets.company_name' | translate}}
-            %input.form-control(type="text" ng-model="$root.user.company_name")
-      .clearfix
-        .row.gtr-t-sm
-          .col-xs-4.pull-right
-            %button.btn.btn-block.btn-primary(type="button" ng-click="updateUser($root.user)" ng-disabled="!userSettings.$valid") {{::"js.helpers.submit" | translate}}
+            %input.form-control(type="text" required ng-model="$root.user.company_name")
+        .tbl-cell.cell-3.gtr-hor.align-bottom
+          %label.form-label.required
+            .form-label-text {{::'js.tickets.address' | translate}}
+            %input.form-control(type="text" required ng-model="$root.user.address")
+        .tbl-cell.cell-3.gtr-hor.align-bottom
+          .gtr-b-sm
+            %button.btn.btn-block.btn-block.btn-primary(type="button" ng-click="updateUser($root.user)" ng-disabled="!userSettings.$valid") {{::"js.helpers.submit" | translate}}

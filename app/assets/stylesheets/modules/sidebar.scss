@@ -2,13 +2,16 @@
   @include scope((
     "tbl-cell",
     "bg-dark",
-    "box-md",
     "align-top",
     "color-white",
   ));
+  width: $sidebar-width;
   text-shadow: 0 0 1px rgba(black, 0.5);
   position: relative;
   z-index: 2;
+  &-close-icon {
+    display: none;
+  }
   &-link {
     display: block;
     padding: 10px $gutter / 2;
@@ -22,6 +25,20 @@
     &:hover, &:focus {
       color: white;
       background-color: rgba(white, 0.03);
+    }
+  }
+  &-close {
+    .sidebar-open-icon {
+      display: none;
+    }
+    .sidebar-close-icon {
+      display: inline-block;
+    }
+    .sidebar {
+      display: none;
+    }
+    .header {
+      padding-left: 0;
     }
   }
 }

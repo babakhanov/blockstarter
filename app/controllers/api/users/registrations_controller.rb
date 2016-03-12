@@ -4,7 +4,7 @@ class Api::Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def account_update_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :current_password, :company_name)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :current_password, :company_name, :address)
   end
 
   def update_resource(resource, params)

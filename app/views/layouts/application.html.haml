@@ -10,8 +10,18 @@
     .main
       .header
         .tbl
-          .tbl-cell.align-middle.cell-6.gtr-hor
-          .tbl-cell.align-middle.text-right.cell-6.gtr-hor
+          .tbl-cell.align-middle.cell-5.gtr-hor
+            .smile.align-middle.cursor-pointer.text-lg(onclick="App.Sidebar.toggle()")
+              .smile.align-middle.sidebar-open-icon
+                = icon :angle_left, class: 'line-null'
+              .smile.align-middle
+                = icon :menu, class: 'line-null'
+              .smile.align-middle.sidebar-close-icon
+                = icon :angle_right, class: 'line-null'
+          .tbl-cell.cell-2.text-center
+            .smile.head-xs
+              %a(ng-href='/#/')=icon :bitcoin_ticket, class: 'line-null'
+          .tbl-cell.align-middle.text-right.cell-5.gtr-hor
             %span(ng-if="!user")
               .smile.align-middle.gtr-l-xs
                 %a(ng-href='/#/sign_in') {{::"js.users.sign_in" | translate}}
@@ -28,8 +38,8 @@
           .clearfix.text-center.text-lg.head-lg.gtr-t
             %a.link-base(href='/#/')= icon :bitcoin_ticket
           .gtr-hor.gtr-ver.font-light
-            %a.sidebar-link(href='/#my_tickets') My Tickets
-            %a.sidebar-link(href='/#settings') Settings
+            %a.sidebar-link(href='/#/') {{::"js.sidebar.my_tickets" | translate}}
+            %a.sidebar-link(href='/#settings') {{::"js.sidebar.settings" | translate}}
         .tbl-cell(ng-class="alignMiddle ? 'align-middle' : 'align-top'" style="overflow: auto;")
           .tbl(ng-show="$parent.waiting")
             .spinner

@@ -19,22 +19,22 @@
               .form-label-text {{::'js.tickets.name' | translate}}
               %input.form-control(type="text" required ng-model="newTicket.name")
           .clearfix
-            %label.form-label.required
+            %label.form-label
               .form-label-text {{::'js.tickets.address' | translate}}
-              %input.form-control(type="text" required ng-model="newTicket.address")
+              %input.form-control(type="text" ng-model="newTicket.address")
           .row
             .col-xs-6
-              %label.form-label.required
+              %label.form-label
                 .form-label-text {{::'js.tickets.company_name' | translate}}
-                %input.form-control(type="text" required ng-model="newTicket.company_name")
+                %input.form-control(type="text" ng-model="newTicket.company_name")
             .col-xs-6
-              %label.form-label.required
+              %label.form-label
                 .form-label-text {{::'js.tickets.issuer' | translate}}
-                %input.form-control(type="text" required ng-model="newTicket.issuer")
+                %input.form-control(type="text" ng-model="newTicket.issuer")
           .clearfix
-            %label.form-label.required
+            %label.form-label
               .form-label-text {{::'js.tickets.description' | translate}}
-              %input.form-control(type="text" required ng-model="newTicket.description")
+              %input.form-control(type="text" ng-model="newTicket.description")
       .row.gtr-t.border-t.border-light
         .col-xs-4
           %label.form-label.required
@@ -45,9 +45,9 @@
             .form-label-text {{::'js.tickets.fee' | translate}}
             %input.form-control(type="number" required ng-model="newTicket.fee")
         .col-xs-4
-          %label.form-label.required
+          %label.form-label
             .form-label-text {{::'js.tickets.profit_margin' | translate}}
-            %input.form-control(type="number" required ng-model="newTicket.profit_margin")
+            %input.form-control(type="number" ng-model="newTicket.profit_margin")
       .clearfix
         %label.form-label.required
           .form-label-text {{::'js.tickets.wif_id' | translate}}

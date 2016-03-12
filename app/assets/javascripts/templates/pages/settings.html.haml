@@ -1,6 +1,7 @@
 .clearfix
-  .gtr-b-sm
-    .text-lg
-      .text-lg My Settings
-  .text-line(ng-if="user")
+  .text-line
+    .gtr-b-sm
+      .text-lg
+        .page-title.text-lg {{::"js.pages.settings" | translate}}
+  .gtr-b(ng-if="user")
     %settings-drv(user="user")

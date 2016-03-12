@@ -1,3 +1,8 @@
+.#{$icomoon-prefix}-menu { 
+  &:before {
+    content: $icon-menu;
+  }
+}
 .#{$icomoon-prefix}-user { 
   &:before {
     content: $icon-user;
@@ -6,6 +11,26 @@
 .#{$icomoon-prefix}-close { 
   &:before {
     content: $icon-close;
+  }
+}
+.#{$icomoon-prefix}-angle-down { 
+  &:before {
+    content: $icon-angle-down;
+  }
+}
+.#{$icomoon-prefix}-angle-up { 
+  &:before {
+    content: $icon-angle-up;
+  }
+}
+.#{$icomoon-prefix}-angle-right { 
+  &:before {
+    content: $icon-angle-right;
+  }
+}
+.#{$icomoon-prefix}-angle-left { 
+  &:before {
+    content: $icon-angle-left;
   }
 }
 .#{$icomoon-prefix}-image { 

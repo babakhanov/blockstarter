@@ -10,10 +10,12 @@ directive = ->
       scope: $scope
 
     $scope.issueAsset = (asset) ->
+      asset.waiting = true
       $http(
         method: 'GET'
         url: "/api/assets/#{asset.id}/issue"
       ).then ((response) ->
+        asset.waiting = false
         if !response.data.error
           $scope.ticket = response.data.asset
           App.Alert.show "success", I18n.t("js.tickets.successfully_issued")

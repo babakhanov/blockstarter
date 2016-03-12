@@ -1,10 +1,16 @@
 en:
   js:
+    sidebar:
+      my_tickets: "My Tickets"
+      settings: "Settings"
+    pages:
+      settings: "My Settings"
+      index: "Dashboard"
     users:
       confirm_password: 'Confirm Password'
       email: "Email"
       enter: "Enter"
-      name: "Name"
+      name: "Issuer Name"
       update: "Update your account"
       forgot_a_password: "Forgot Password?"
       password: "Password"
@@ -17,6 +23,7 @@ en:
       signed_in: "Successfully signed in"
       signed_out: "Successfully signed out"
       signed_up: "Successfully signed up"
+      profile_updated: "Your profile has been updated"
     tickets:
       amount: "Amount"
       company_name: "Company Name"
@@ -34,6 +41,10 @@ en:
       confirm_to_remove: "Are you sure you want to remove this ticket?"
       address: "Address"
       successfully_issued: "The ticket was successfully issued"
+      send_this: "Send this ticket"
+      states:
+        active: "Active"
+        not_issued: "Not issued"
     helpers:
       submit: "Submit"
       delete: "Delete"

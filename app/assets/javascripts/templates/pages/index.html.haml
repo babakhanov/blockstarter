@@ -1,7 +1,7 @@
 .clearfix
-  .gtr-b-sm
-    .text-lg
-      .text-lg My Tickets
+  .text-line
+    .page-title.text-lg 
+      .text-lg {{::"js.pages.index" | translate}}
   .text-line(ng-if="user")
     %create-ticket-form(tickets="tickets")
   .text-line
