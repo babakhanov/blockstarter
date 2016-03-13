@@ -3,6 +3,17 @@
     .gtr-b-sm
       .text-lg
         .page-title.text-lg {{::"js.pages.wallets" | translate}}
+  .text-line.row
+    %form.tbl(name="newWif")
+      .tbl-cell.align-bottom.cell-12.gtr-hor
+        %label.form-label.required
+          .form-label-text {{::"js.wallets.import_wif" | translate}}
+          %input.form-control(type="test" ng-model="newWif.wif" required)
+      .tbl-cell.align-bottom.gtr-hor
+        .gtr-b-sm
+          %button.btn.btn-primary(ng-click="importWif(newWif.wif)" ng-disabled="!newWif.$valid || importing") 
+            {{::"js.helpers.import" | translate}}
+    
   .clearfix
     .gtr-b-sm(ng-repeat="wif in wifs track by wif.id")
       %wif-item

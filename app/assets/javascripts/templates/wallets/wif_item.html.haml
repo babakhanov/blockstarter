@@ -2,7 +2,8 @@
   .tbl
     .tbl-cell.cell-8.align-middle
       {{::wif.address}}
-      .font-bold {{::wif.balance}}
+      .font-bold 
+        {{::wif.balance}} {{::"js.helpers.satoshies" | translate}} ({{::wif.balance / 100000000}} {{::"js.helpers.btc" | translate}})
     .tbl-cell.cell-4.text-right.align-middle
       .smile.align-middle.gtr-l-sm
         %a(href title="{{::'js.wallets.show_wif' | translate}}" ng-click="showWif(wif)" ng-if='!wif.wif')= icon :eye

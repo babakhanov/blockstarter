@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   root 'pages#index'
   namespace :api, defaults: { format: :json } do
-    resources :wifs, only: [:index, :show, :destroy]
+    resources :wifs
     resources :assets do
       get :issue, to: "assets#issue"
       post :send_asset, to: "assets#send_asset"

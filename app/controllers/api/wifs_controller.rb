@@ -7,4 +7,13 @@ class Api::WifsController < ApiController
   def show
     render json: {wif: @wif.wif}
   end
+
+  def create
+    @wif = current_user.wifs.new params.require(:wif).permit(:wif)
+    @wif.address = Bitcoin::Key.from_base58(@wif.wif).addr
+    @wif.user_id = current_user.id
+    if @wif.address && @wif.save
+      render json: @wif
+    end
+  end
 end
