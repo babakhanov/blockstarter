@@ -16,13 +16,16 @@ class Api::WifsController < ApiController
 
 
   def create
-    if Wif.find_by(user_id: cur_user.id, address: $api.get_address(params[:wif][:wif]))
-      render json: {error: I18n.t("js.wallets.wallet_exists")}
-      return
+    if params[:wif]
+      if Wif.find_by(user_id: cur_user.id, address: $api.get_address(params[:wif][:wif]))
+        render json: {error: I18n.t("js.wallets.wallet_exists")}
+        return
+      end
+      @wif = current_user.wifs.new params.require(:wif).permit(:wif)
+    else
+      @wif = current_user.wifs.new wif: Bitcoin::Key.new(Bitcoin.generate_key[0]).to_base58
     end
-    @wif = current_user.wifs.new params.require(:wif).permit(:wif)
     @wif.address = Bitcoin::Key.from_base58(@wif.wif).addr
-    @wif.user_id = current_user.id
     if @wif.address && @wif.save
       render json: @wif
     end

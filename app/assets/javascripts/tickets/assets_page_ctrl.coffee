@@ -31,8 +31,8 @@ controller = ($scope, $modal) ->
         $scope.$apply() unless $scope.$$phase
     ), (response) -> console.log response
 
-angular.module "app.shared"
-  .controller "indexPageCtrl", [
+angular.module "app.tickets"
+  .controller "assetsPageCtrl", [
     "$scope"
     "$modal"
     controller

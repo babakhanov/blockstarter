@@ -8,7 +8,7 @@
       window.anonimusUser = #{!user_signed_in?}
   %body(ng-app="app" ng-controller="mainCtrl" ng-class="{'sidebar-close': !$root.user.id}")
     .main
-      %header
+      %header(ng-show="!$root.waiting")
       .tbl
         %sidebar(ng-if="$root.user.id")
         .tbl-cell(ng-class="alignMiddle ? 'align-middle' : 'align-top'" style="overflow: auto;")

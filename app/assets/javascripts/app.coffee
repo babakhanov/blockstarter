@@ -4,6 +4,7 @@
 //= require ./settings/settings
 //= require ./shared/shared
 //= require ./wallets/wallets
+//= require ./marketplace/marketplace
 
 angular.module "app", [
   "ngRoute"
@@ -25,6 +26,7 @@ angular.module "app", [
   "app.shared"
   "app.settings"
   "app.wallets"
+  "app.marketplace"
 ]
 
 angular.module "app"
