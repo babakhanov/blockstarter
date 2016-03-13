@@ -34,7 +34,7 @@ class ColoredCoins
   end
 
   def getbalance(address, with_name=true)
-    summ = self.addressinfo(address)[:utxos].map{|d| !d["used"] ? d["value"] : nil }.compact.sum
+    summ = self.addressinfo(address)[:utxos].map{|d| d["index"] == 1 ? d["value"] : nil }.compact.sum
     with_name ? [summ, currency_name].join(" ") : summ
   end
 
