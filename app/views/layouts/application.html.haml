@@ -8,10 +8,10 @@
       window.anonimusUser = #{!user_signed_in?}
   %body(ng-app="app" ng-controller="mainCtrl" ng-class="{'sidebar-close': !$root.user.id}")
     .main
-      %header(ng-show="!$root.waiting")
+      %header(ng-show="$root.ready")
       .tbl
         %sidebar(ng-if="$root.user.id")
         .tbl-cell(ng-class="alignMiddle ? 'align-middle' : 'align-top'" style="overflow: auto;")
-          .tbl(ng-show="$parent.waiting" spinner)
+          .tbl(ng-show="$parent.waiting || !$root.ready" spinner)
           %span.content(ng-show="!$parent.waiting")
             .gtr-hor.gtr-ver(ng-view)

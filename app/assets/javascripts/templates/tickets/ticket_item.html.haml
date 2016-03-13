@@ -33,7 +33,7 @@
     .col-xs-4.text-right(ng-if="ticket.picture_url")
       .gtr-hor.gtr-ver
         %img(ng-src="{{ticket.picture_url}}") 
-  .gtr-b.text-right.gtr-hor
+  .gtr-b.text-right.gtr-hor(ng-if="!marketplace")
     %span(ng-show="!ticket.waiting")
       %span(ng-if="!ticket.is_issued")
         %button.btn.btn-default(ng-click="issueAsset(ticket)") 
@@ -45,7 +45,7 @@
       %span(ng-if="!ticket.is_published && ticket.is_issued")
         %button.btn.btn-success(ng-click="toggleAsset(ticket)")
           {{::"js.tickets.publish" | translate}}
-      %span(ng-if="ticket.is_issued")
+      %span(ng-if="ticket.is_issued && ticket.user_id==$root.user.id")
         %button.btn.btn-primary(ng-click="sendTicketModal.show()")
           {{::"js.tickets.send_this" | translate}}
       %button.btn.btn-danger(ng-click="confirmModal.show()" title="{{::'js.helpers.delete' | translate}}")=icon :trash

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   namespace :api, defaults: { format: :json } do
     resources :wifs
+    resource :marketplace
     resources :assets do
       get :issue, to: "assets#issue"
       get :toggle, to: "assets#toggle"

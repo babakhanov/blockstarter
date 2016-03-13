@@ -3,4 +3,6 @@
     .gtr-b-sm
       .text-lg
         .page-title.text-lg {{::"js.pages.marketplace" | translate}}
-  .text-line.row-hor-sm
+  .text-line
+    .gtr-b-sm(ng-repeat="(key, ticket) in tickets track by ticket.id")
+      %ticket
