@@ -4,11 +4,9 @@ module SerializeHelper
     ActiveModel::ArraySerializer.new(objects, options)
   end
 
-  def serialize_object(object, serializer = nil)
+  def serialize_object(object, serializer = nil, options= {})
     serializer ||= [object.class.name, 'Serializer'].join().constantize
 
-    serializer.new(object).as_json(
-      root: false
-    )
+    serializer.new(object).as_json(options.merge(root: false))
   end
 end

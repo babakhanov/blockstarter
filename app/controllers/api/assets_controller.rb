@@ -39,7 +39,21 @@ class Api::AssetsController < ApiController
     end
   end
 
+  def send_asset
+    response = Asset.find(params[:asset_id]).send_asset(send_asset_params)
+    if response[:error]
+      render json: response
+    else
+      response = $api.broadcast($api.sign(@asset.wif.wif, response[:txHex]))
+      debugger
+    end
+  end
+
   private
+  
+  def send_asset_params
+    params.require(:asset).permit(:address, :amount)
+  end
 
   def asset_params
     params.require(:asset).permit(:wif_id, :name, :amount, :fee, :issuer, :description, :picture, :company_name, :address, :profit_margin)

@@ -13,6 +13,10 @@ class ColoredCoins
     make_request(api_url(:issue), asset)
   end
 
+  def send_asset(asset)
+    make_request(api_url(:sendasset), asset)
+  end
+
   def broadcast(tx_hex)
     make_request(api_url(:broadcast), {txHex: tx_hex}) 
   end

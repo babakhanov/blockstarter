@@ -9,10 +9,31 @@ directive = ->
       show: false
       scope: $scope
 
+    $scope.sendTicketModal = $modal
+      templateUrl: "tickets/send_ticket_modal.html"
+      container: "body"
+      show: false
+      scope: $scope
+
+    $scope.sendTicket = (asset, data) ->
+      $http(
+        method: "POST"
+        url: "/api/assets/#{asset.id}/send_asset"
+        data: {asset: {address: data.address, amount: data.amount}}
+      ).then ((response) ->
+        $scope.sendTicketModal.hide()
+        if !response.data.error
+          debugger
+        else
+          App.Alert.show "danger", response.data.error
+
+      ), (response) ->
+        App.Alert.show "danger", I18n.t("js.info.something_went_wrong")
+
     $scope.issueAsset = (asset) ->
       asset.waiting = true
       $http(
-        method: 'GET'
+        method: "GET"
         url: "/api/assets/#{asset.id}/issue"
       ).then ((response) ->
         asset.waiting = false

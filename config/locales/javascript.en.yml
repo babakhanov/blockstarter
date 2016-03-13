@@ -50,5 +50,6 @@ en:
       delete: "Delete"
       are_you_sure: "Are you sure?"
       cancel: "Cancel"
+      send: "Send"
     info:
       something_went_wrong: "Something went wrong. Please reload the page."

@@ -28,7 +28,7 @@ class Assets::MetadataSerializer < ::ApiSerializer
   private
 
   def picture
-    if object.picture
+    if object.picture && object.picture.url
       { url: [ENV["DOMAIN_NAME"], object.picture.normal.url].join('/'), mimeType: object.picture.normal.content_type}
     else 
       {url: ENV["ASSET_ICON_DEFAULT"], mimeType: "image/png"}

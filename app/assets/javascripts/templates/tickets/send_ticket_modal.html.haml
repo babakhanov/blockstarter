@@ -1,0 +1,19 @@
+.modal
+  %form.modal-dialog(name="sendTicketForm" ng-init="sendTicketData={}")
+    .modal-content
+      .modal-header
+        %h4 {{::"js.helpers.send" | translate}} "{{ticket.name}}"
+      .modal-body
+        .row
+          .col-xs-8
+            %label.form-label.required
+              .form-label-text {{::'js.tickets.address' | translate}}
+              %input.form-control(type="text" required ng-model="sendTicketData.address")
+          .col-xs-4
+            %label.form-label.required
+              .form-label-text {{::'js.tickets.amount' | translate}}
+              %input.form-control(type="number" required ng-model="sendTicketData.amount")
+
+      .modal-footer
+        %button.btn.btn-default(ng-click="$hide()") {{::"js.helpers.cancel" | translate}}
+        %button.btn.btn-primary(ng-click="sendTicket(ticket, sendTicketData)" ng-disabled="!sendTicketForm.$valid") {{::"js.helpers.send" | translate}}

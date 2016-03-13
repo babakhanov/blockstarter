@@ -20,4 +20,8 @@ class Asset < ActiveRecord::Base
     self.update(is_issued: true, tx_ids: response[:txid].map{|t| t["txid"] }) if response[:txid].any? 
   end
 
+  def send_asset(params)
+    $api.send_asset serialize_object(self, ::Assets::SendSerializer, params)
+  end
+
 end

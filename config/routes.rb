@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     resources :assets do
       get :issue, to: "assets#issue"
+      post :send_asset, to: "assets#send_asset"
     end
   end
 end
