@@ -11,6 +11,8 @@ en:
     wallets:
       show_wif: "Show WIF"
       import_wif: "Import WIF"
+      confirm_delete: "Do you really want to remove this wallet?"
+      wallet_exists: "You already have this wallet"
     users:
       confirm_password: 'Confirm Password'
       email: "Email"
@@ -48,6 +50,10 @@ en:
       successfully_issued: "The ticket was successfully issued"
       send_this: "Send this ticket"
       successfully_sent: "The ticket was successfully sent"
+      successfully_published: "The ticket was successfully published"
+      successfully_unpublished: "The ticket was unpublished"
+      publish: "Publish for sale"
+      unpublish: "Unpublish"
       states:
         active: "Active"
         not_issued: "Not issued"
@@ -62,3 +68,4 @@ en:
       btc: "BTC"
     info:
       something_went_wrong: "Something went wrong. Please reload the page."
+      wif_added: "Wif has been inported"

@@ -7,6 +7,7 @@
             .clearfix
               .smile.align-middle
                 %b.text-md {{ticket.name}}
+                %span(ng-if="ticket.asset_id") ({{ticket.asset_id}})
               .smile.align-middle.gtr-l-xs
                 .label(ng-class="ticket.is_issued ? 'label-success' : 'label-default'")
                   {{"js.tickets.states." + ticket.state | translate}}
@@ -38,6 +39,12 @@
         %button.btn.btn-default(ng-click="issueAsset(ticket)") 
           {{::"js.tickets.issue_asset" | translate}}
           = icon :paper_plane, class: 'text-sm'
+      %span(ng-if="ticket.is_published && ticket.is_issued")
+        %button.btn.btn-default(ng-click="toggleAsset(ticket)")
+          {{::"js.tickets.unpublish" | translate}}
+      %span(ng-if="!ticket.is_published && ticket.is_issued")
+        %button.btn.btn-success(ng-click="toggleAsset(ticket)")
+          {{::"js.tickets.publish" | translate}}
       %span(ng-if="ticket.is_issued")
         %button.btn.btn-primary(ng-click="sendTicketModal.show()")
           {{::"js.tickets.send_this" | translate}}

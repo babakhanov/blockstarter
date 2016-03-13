@@ -1,0 +1,10 @@
+.modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4 {{::"js.helpers.are_you_sure" | translate}}
+      .modal-body
+        {{::"js.wallets.confirm_delete" | translate}}
+      .modal-footer
+        %button.btn.btn-default(ng-click="$hide()") {{::"js.helpers.cancel" | translate}}
+        %button.btn.btn-danger(ng-click="removeWif(wif, $index)") {{::"js.helpers.delete" | translate}}

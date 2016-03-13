@@ -9,7 +9,7 @@ class Api::AssetsController < ApiController
   end
 
   def create
-    @asset = current_user.assets.new asset_params
+    @asset = Asset.new asset_params.merge(user_id: cur_user.id) 
     if @asset.save
       render json: @asset
     end
@@ -28,8 +28,16 @@ class Api::AssetsController < ApiController
     end
   end
 
+  def toggle
+    @asset = Asset.find_by(user_id: cur_user.id, id: params[:asset_id])
+    return if !@asset
+    @asset.update(is_published: !@asset.is_published)
+    render json: {is_published: @asset.is_published}
+  end
+
   def issue
-    @asset = Asset.find(params[:asset_id])
+    @asset = Asset.find_by(user_id: cur_user.id, id: params[:asset_id])
+    return if !@asset
     data = @asset.issue
     unless data[:error]
       @asset.broadcast

@@ -33,6 +33,23 @@ directive = ->
       ), (response) ->
         App.Alert.show "danger", I18n.t("js.info.something_went_wrong")
 
+    $scope.toggleAsset = (asset) ->
+      asset.waiting = true
+      $http(
+        method: "GET"
+        url: "/api/assets/#{asset.id}/toggle"
+      ).then ((response) ->
+        asset.waiting = false
+        if !response.data.error
+          App.Alert.show "success", I18n.t("js.tickets.successfully_published") if response.data.is_published
+          App.Alert.show "info", I18n.t("js.tickets.successfully_unpublished") if !response.data.is_published
+          asset.is_published = response.data.is_published
+          $scope.$apply() unless $scope.$$phase
+        else
+          App.Alert.show "danger", response.data.error
+      ), (response) ->
+        App.Alert.show "danger", I18n.t("js.info.something_went_wrong")
+
     $scope.issueAsset = (asset) ->
       asset.waiting = true
       $http(

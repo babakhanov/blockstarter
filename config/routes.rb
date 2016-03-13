@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     resources :wifs
     resources :assets do
       get :issue, to: "assets#issue"
+      get :toggle, to: "assets#toggle"
       post :send_asset, to: "assets#send_asset"
     end
   end

@@ -52,7 +52,7 @@
         %label.form-label.required
           .form-label-text {{::'js.tickets.wif_id' | translate}}
           %select.form-control(ng-model="newTicket.wif_id")
-            %option(ng-repeat="wif in $root.user.wifs track by wif.id" ng-value="wif.id") {{wif.address}}
+            %option(ng-repeat="wif in $root.user.wifs track by wif.id" value="{{wif.id}}") {{wif.address}} ({{::wif.balance / 100000000}} {{::"js.helpers.btc" | translate}})
       .clearfix
         .row.gtr-t-sm
           .col-xs-4.pull-right
