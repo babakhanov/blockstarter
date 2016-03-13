@@ -9,6 +9,18 @@ class ColoredCoins
     @api_v = api_v
   end
 
+  def from_wif_to_addr(wif, addr, amount)
+    txs = self.find_for_tx_to_send(wif, amount)
+    return txs[:error] if txs[:error]
+    `node #{Rails.root.to_s}/sign_js/from_wif_to_addr.js #{wif} #{addr} #{txs[0][:value]} #{amount} #{ENV["ASSET_FEE"].to_i}, #{txs[0][:txid]}, #{txs[0][:index]}}`.chomp
+  end
+
+  def find_for_tx_to_send(wif, amount)
+    utxos = self.addressinfo(self.get_address(wif))
+    txs = utxos[:utxos].map{|a| a["value"] > amount ? {index: a["index"], value: a["value"], txid: a["txid"]} : nil}.compact
+    txs.any? ? txs : {error: I18n.t("js.info.no_enough_funds")}
+  end
+
   def issue_asset(asset, sign=true)
     make_request(api_url(:issue), asset)
   end
