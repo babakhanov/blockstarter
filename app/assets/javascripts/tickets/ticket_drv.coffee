@@ -16,14 +16,17 @@ directive = ->
       scope: $scope
 
     $scope.sendTicket = (asset, data) ->
+      $scope.sendTicketModal.hide()
+      $scope.ticket.waiting = true
       $http(
         method: "POST"
         url: "/api/assets/#{asset.id}/send_asset"
         data: {asset: {address: data.address, amount: data.amount}}
       ).then ((response) ->
-        $scope.sendTicketModal.hide()
-        if !response.data.error
-          debugger
+        $scope.ticket.waiting = false
+        if response.data.asset
+          $scope.ticket = response.data.asset
+          App.Alert.show "success", I18n.t("js.tickets.successfully_sent")
         else
           App.Alert.show "danger", response.data.error
 

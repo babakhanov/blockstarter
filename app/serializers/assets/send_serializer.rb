@@ -10,15 +10,17 @@ class Assets::SendSerializer < ::ApiSerializer
   end
 
   def to
-    [{
-      address: $api.get_address(object.wif.wif), 
-      amount: object.amount - serialization_options[:amount].to_i, 
-      assetId: object.asset_id
-    },
-    {
+    to = [{
       address: serialization_options[:address], 
       amount: serialization_options[:amount], 
       assetId: object.asset_id
     }]
+    if object.amount > serialization_options[:amount].to_i 
+      to << {
+        address: $api.get_address(object.wif.wif), 
+        amount: object.amount - serialization_options[:amount].to_i, 
+        assetId: object.asset_id
+      }
+    end
   end
 end

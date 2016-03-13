@@ -40,13 +40,20 @@ class Api::AssetsController < ApiController
   end
 
   def send_asset
-    response = Asset.find(params[:asset_id]).send_asset(send_asset_params)
-    if response[:error]
-      render json: response
+    @asset = Asset.find(params[:asset_id])
+    res = @asset.send_asset(send_asset_params)
+    if res[:error]
+      render json: res
     else
-      response = $api.broadcast($api.sign(@asset.wif.wif, response[:txHex]))
-      debugger
+      response = $api.broadcast($api.sign(@asset.wif.wif, res[:txHex]))
+      if response[:txid].any?
+        @asset.update! amount: @asset.amount - send_asset_params[:amount].to_i
+        render json: {asset: serialize_object(@asset, ::Api::AssetSerializer)}
+      else
+        render json: {error: I18n.t("js.info.something_went_wrong")}
+      end
     end
+
   end
 
   private

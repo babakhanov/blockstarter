@@ -42,6 +42,7 @@ en:
       address: "Address"
       successfully_issued: "The ticket was successfully issued"
       send_this: "Send this ticket"
+      successfully_sent: "The ticket was successfully sent"
       states:
         active: "Active"
         not_issued: "Not issued"

@@ -21,7 +21,12 @@ class Asset < ActiveRecord::Base
   end
 
   def send_asset(params)
-    $api.send_asset serialize_object(self, ::Assets::SendSerializer, params)
+    response = $api.send_asset(serialize_object(self, ::Assets::SendSerializer, params))
+    if !response[:txHex]
+      {error: response[:error] || I18n.t("js.info.something_went_wrong")}
+    else
+      response
+    end
   end
 
 end
