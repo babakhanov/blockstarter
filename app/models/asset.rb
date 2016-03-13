@@ -29,11 +29,11 @@ class Asset < ActiveRecord::Base
       if tx[:txid] && tx[:txid].any?
         res = self.send_asset({address: new_addr, amount: 1})
         response = $api.broadcast($api.sign(self.wif.wif, res[:txHex]))
-        if response[:txid].any?
+        if !response[:error] && response[:txid].any?
           self.update! amount: self.amount - 1 
           {asset: {wif: new_wif, asset_id: self.asset_id}}
         else
-          {error: I18n.t("js.info.something_went_wrong")}
+          {error: response[:error] || I18n.t("js.info.something_went_wrong")}
         end
       else
         {error: I18n.t("js.info.something_went_wrong")}
