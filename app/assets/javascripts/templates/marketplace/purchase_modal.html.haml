@@ -1,0 +1,29 @@
+.modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4 {{::"js.marketplace.payments.title" | translate }}
+      .modal-body
+        %form(name="ccForm")
+          .clearfix
+            %label.form-label.required
+              .form-label-text {{::"js.marketplace.payments.card_number" | translate}}
+              %input.form-control(ng-model="paymentForm.cardNumber" required)
+          .row
+            .col-xs-7
+              .row
+                .col-xs-6
+                  %label.form-label.required
+                    .form-label-text {{::"js.marketplace.payments.month" | translate}}
+                    %input.form-control(ng-model="paymentForm.expire[0]" required)
+                .col-xs-6
+                  %label.form-label.required
+                    .form-label-text {{::"js.marketplace.payments.day" | translate}}
+                    %input.form-control(ng-model="paymentForm.expire[1]" required)
+            .col-xs-5
+              %label.form-label.required
+                .form-label-text {{::"js.marketplace.payments.cvv" | translate}}
+                %input.form-control(ng-model="paymentForm.cvv" required)
+      .modal-footer
+        %button.btn.btn-default(ng-click="$hide()") {{::"js.helpers.cancel" | translate}}
+        %button.btn.btn-primary(ng-click="purchaseTicket(ticket)") {{::"js.helpers.purchase" | translate}}

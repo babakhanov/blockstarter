@@ -13,6 +13,11 @@
     content: $icon-close;
   }
 }
+.#{$icomoon-prefix}-shopping-cart { 
+  &:before {
+    content: $icon-shopping-cart;
+  }
+}
 .#{$icomoon-prefix}-eye { 
   &:before {
     content: $icon-eye;

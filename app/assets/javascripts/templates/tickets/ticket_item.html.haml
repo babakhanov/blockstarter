@@ -12,10 +12,10 @@
                 .label(ng-class="ticket.is_issued ? 'label-success' : 'label-default'")
                   {{"js.tickets.states." + ticket.state | translate}}
             .gtr-t-sm.text-sm
-              .tbl
+              .tbl(ng-if="!marketplace")
                 .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.amount" | translate}}
                 .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.amount}}
-              .tbl
+              .tbl(ng-if="!marketplace")
                 .tbl-cell.bg-light.gtr-ver-xs.gtr-hor-sm.box-xs {{::"js.tickets.asset_id" | translate}}
                 .tbl-cell.gtr-ver-xs.gtr-hor-sm {{ticket.id}}
               .tbl
@@ -51,3 +51,4 @@
       %button.btn.btn-danger(ng-click="confirmModal.show()" title="{{::'js.helpers.delete' | translate}}")=icon :trash
     .pull-right(ng-show="ticket.waiting" style="height: 3.5rem;")
       .gtr-t.gtr-hor-sm(spinner ng-show="ticket.waiting")
+  .gtr-b.text-right.gtr-hor(ng-if="marketplace" marketplace-ticket ticket="$parent.ticket")
