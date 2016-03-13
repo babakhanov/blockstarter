@@ -1,0 +1,16 @@
+.modal
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h4 {{::"js.marketplace.your_ticket" | translate }}
+      .modal-body.text-center
+        %qrcode(size="500" data="purchasedTicket")
+      .gtr-t-2x.text-center
+        .clearfix
+          {{::"js.marketplace.wif" | translate}}:
+          %b {{purchasedTicket.wif}} 
+        .clearfix
+          {{::"js.marketplace.asset_id" | translate}}:
+          %b {{purchasedTicket.asset_id}} 
+      .modal-footer
+        %button.btn.btn-default(ng-click="$hide()") {{::"js.helpers.got_it" | translate}}

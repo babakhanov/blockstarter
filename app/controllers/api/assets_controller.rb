@@ -35,6 +35,11 @@ class Api::AssetsController < ApiController
     render json: {is_published: @asset.is_published}
   end
 
+  def buy
+    res = Asset.find_by(params[:id]).buy
+    render json: res
+  end
+
   def issue
     @asset = Asset.find_by(user_id: cur_user.id, id: params[:asset_id])
     return if !@asset

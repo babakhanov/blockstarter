@@ -1,7 +1,11 @@
 en:
   js:
     marketplace:
+      wif: "Wif"
+      asset_id: "AssetId"
+      your_ticket: "It's your ticket"
       purchase: "Buy"
+      show_purchased: "Show Purchased Ticket"
       payments:
         title: "Payment Info"
         card_number: "Card Number"
@@ -78,6 +82,7 @@ en:
       satoshies: "Satoshies"
       btc: "BTC"
       purchase: "Purchase"
+      got_it: "Got it!"
     info:
       something_went_wrong: "Something went wrong. Please reload the page."
       wif_added: "Wif has been added"

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :assets do
       get :issue, to: "assets#issue"
       get :toggle, to: "assets#toggle"
+      get :buy, to: "assets#buy"
       post :send_asset, to: "assets#send_asset"
     end
   end

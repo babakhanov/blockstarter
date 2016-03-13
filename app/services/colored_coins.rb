@@ -11,13 +11,14 @@ class ColoredCoins
 
   def from_wif_to_addr(wif, addr, amount, to_broadcast=true)
     txs = self.find_for_tx_to_send(wif, amount)
-    return txs[:error] if txs.class == "Hash" && txs[:error] 
+    return txs if txs.class == Hash && txs[:error] 
     params = [wif, addr, txs[0][:value], amount, ENV['ISSUE_FEE'], txs[0][:txid], txs[0][:index]].join(' ')
     txHex = `node #{Rails.root.to_s}/sign_js/from_wif_to_addr.js #{params}}`.chomp
     self.broadcast(txHex) if to_broadcast
   end
 
   def find_for_tx_to_send(wif, amount)
+    amount = amount.to_i
     utxos = self.addressinfo(self.get_address(wif))
     txs = utxos[:utxos].map{|a| a["value"] > amount ? {index: a["index"], value: a["value"], txid: a["txid"]} : nil}.compact
     txs.any? ? txs : {error: I18n.t("js.info.no_enough_funds")}
