@@ -15,7 +15,10 @@ angular.module "app.core"
         controller: 'myTicketsCtrl'
       .when '/settings',
         templateUrl: 'pages/settings.html',
-        controller: 'settingsCtrl'
+        controller: false
+      .when '/wallets',
+        templateUrl: 'pages/wallets.html',
+        controller: 'walletsCtrl'
       .otherwise
         redirectTo: '/'
   ]

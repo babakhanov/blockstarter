@@ -28,6 +28,7 @@ gem 'dotenv'
 
 group :development, :test do
   gem 'byebug'
+  gem 'better_errors'
   gem 'capistrano',                '~> 3.2.1'
   gem 'capistrano-rails',          '~> 1.1.2'
   gem 'capistrano-rvm',            '~> 0.1.2'

@@ -13,6 +13,11 @@
     content: $icon-close;
   }
 }
+.#{$icomoon-prefix}-eye { 
+  &:before {
+    content: $icon-eye;
+  }
+}
 .#{$icomoon-prefix}-angle-down { 
   &:before {
     content: $icon-angle-down;

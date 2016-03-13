@@ -3,9 +3,13 @@ en:
     sidebar:
       my_tickets: "My Tickets"
       settings: "Settings"
+      wallets: "My Wallets"
     pages:
       settings: "My Settings"
       index: "Dashboard"
+      wallets: "My Wallets"
+    wallets:
+      show_wif: "Show WIF"
     users:
       confirm_password: 'Confirm Password'
       email: "Email"

@@ -23,3 +23,6 @@
 
   @remove = (path, id, success) ->
     $.ajax(ajax("#{path}/#{id}", "DELETE", "")).done(success)
+
+  @show = (path, id, success) ->
+    $.ajax(ajax("#{path}/#{id}", "GET", "")).done(success)

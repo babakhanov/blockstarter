@@ -23,7 +23,7 @@ controller = ($scope, Auth, $location, $rootScope) ->
   $scope.logout = ->
     Auth.logout().then ((oldUser) ->
       $rootScope.user = undefined
-      $location.path '/#/'
+      $location.path '/sign_in'
       App.Alert.show "info", I18n.t("js.users.signed_out")
     ), (error) ->
 

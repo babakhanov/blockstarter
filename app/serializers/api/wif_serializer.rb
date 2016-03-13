@@ -1,7 +1,8 @@
 class Api::WifSerializer < ::ApiSerializer
-  attributes :id, :address
+  attributes :id, :address, :balance
 
-  def address
-    $api.get_address(object.wif)
+  def balance
+    $api.getbalance(object.address)
   end
+
 end

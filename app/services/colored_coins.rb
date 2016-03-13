@@ -28,6 +28,15 @@ class ColoredCoins
   def sign(key, tx_hex)
     `node #{Rails.root.to_s}/sign_js/sign.js #{tx_hex.chomp} #{key.chomp}`.chomp
   end
+  
+  def addressinfo(address)
+    make_request(api_url("addressinfo/#{address}"), '', '', 'Get') 
+  end
+
+  def getbalance(address, with_name=true)
+    summ = self.addressinfo(address)[:utxos].map{|d| !d["used"] ? d["value"] : nil }.compact.sum
+    with_name ? [summ, currency_name].join(" ") : summ
+  end
 
   private
 
@@ -37,11 +46,15 @@ class ColoredCoins
     }[@network]
   end
 
-  def make_request(path, data, endpoint='')
+  def currency_name
+    { mainnet: "BTC", testnet3: "tBTC" }[@network]
+  end
+
+  def make_request(path, data, endpoint='', method="Post")
     uri = URI.parse(path)   
     res = Net::HTTP.new(uri.host, uri.port).start do |client|
-      request = Net::HTTP::Post.new(uri.path)
-      request.body = data.to_json
+      request = "Net::HTTP::#{method}".constantize.new(uri.path)
+      request.body = data.to_json unless method == "Get"
       request["Content-Type"] = "application/json"
       client.request(request)
     end

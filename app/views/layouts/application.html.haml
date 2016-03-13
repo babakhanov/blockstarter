@@ -1,50 +1,17 @@
 !!!
 %html(ng-app="app")
   %head
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'application'
+    = javascript_include_tag 'application'
     = csrf_meta_tags
     %script(type="text/javascript")
       window.anonimusUser = #{!user_signed_in?}
-  %body(ng-app="app" ng-controller="mainCtrl")
+  %body(ng-app="app" ng-controller="mainCtrl" ng-class="{'sidebar-close': !$root.user.id}")
     .main
-      .header
-        .tbl
-          .tbl-cell.align-middle.cell-5.gtr-hor
-            .smile.align-middle.cursor-pointer.text-lg(onclick="App.Sidebar.toggle()")
-              .smile.align-middle.sidebar-open-icon
-                = icon :angle_left, class: 'line-null'
-              .smile.align-middle
-                = icon :menu, class: 'line-null'
-              .smile.align-middle.sidebar-close-icon
-                = icon :angle_right, class: 'line-null'
-          .tbl-cell.cell-2.text-center
-            .smile.head-xs.row-b
-              %a(ng-href='/#/')=icon :bitcoin_ticket, class: 'line-null'
-          .tbl-cell.align-middle.text-right.cell-5.gtr-hor
-            %span(ng-if="!user")
-              .smile.align-middle.gtr-l-xs
-                %a(ng-href='/#/sign_in') {{::"js.users.sign_in" | translate}}
-              .smile /
-              .smile.align-middle.gtr-l-xs
-                %a(ng-href='/#/sign_up') {{::"js.users.sign_up" | translate}}
-            %span(ng-if="user")
-              .smile.align-middle.gtr-hor-xs
-                {{user.email}}
-              .smile.align-middle
-                %a(href ng-click="logout()")=icon :sign_out
+      %header
       .tbl
-        .sidebar
-          .clearfix.text-center.text-lg.head-lg.gtr-t
-            %a.link-base(href='/#/')= icon :bitcoin_ticket
-          .gtr-hor.gtr-ver.font-light
-            %a.sidebar-link(href='/#/') {{::"js.sidebar.my_tickets" | translate}}
-            %a.sidebar-link(href='/#settings') {{::"js.sidebar.settings" | translate}}
+        %sidebar(ng-if="$root.user.id")
         .tbl-cell(ng-class="alignMiddle ? 'align-middle' : 'align-top'" style="overflow: auto;")
-          .tbl(ng-show="$parent.waiting")
-            .spinner
-              .bounce-1
-              .bounce-2
-              .bounce-3
+          .tbl(ng-show="$parent.waiting" spinner)
           %span.content(ng-show="!$parent.waiting")
             .gtr-hor.gtr-ver(ng-view)

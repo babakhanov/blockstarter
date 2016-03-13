@@ -1,0 +1,8 @@
+.clearfix
+  .text-line
+    .gtr-b-sm
+      .text-lg
+        .page-title.text-lg {{::"js.pages.wallets" | translate}}
+  .clearfix
+    .gtr-b-sm(ng-repeat="wif in wifs track by wif.id")
+      %wif-item

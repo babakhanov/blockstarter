@@ -12,4 +12,10 @@
       color: $link-color;
     }
   }
+  &-red {
+    color: red;
+    &:hover {
+      color: darken(red, 10%);
+    }
+  }
 }

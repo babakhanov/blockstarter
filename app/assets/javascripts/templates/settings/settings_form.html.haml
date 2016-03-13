@@ -18,4 +18,4 @@
             %input.form-control(type="text" required ng-model="$root.user.address")
         .tbl-cell.cell-3.gtr-hor.align-bottom
           .gtr-b-sm
-            %button.btn.btn-block.btn-block.btn-primary(type="button" ng-click="updateUser($root.user)" ng-disabled="!userSettings.$valid") {{::"js.helpers.submit" | translate}}
+            %button.btn.btn-block.btn-block.btn-primary(type="button" ng-click="updateUser($root.user)" ng-disabled="!userSettings.$valid || !userSettings.$dirty") {{::"js.helpers.submit" | translate}}

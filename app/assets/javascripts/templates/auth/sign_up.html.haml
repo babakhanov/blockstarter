@@ -23,7 +23,7 @@
               .form-label-text {{::'js.users.confirm_password' | translate}}
               %input.form-control(type="password" autocomplete="off" required name="passwordConfirmation" ng-model="signData.password_confirmation" match="signForm.password")
         .text-center.gtr-t
-          %button.btn.btn-primary.btn-block(type="submit" ng-disabled="!signForm.$valid" ng-click="signUp()")
+          %button.btn.btn-primary.btn-block(type="submit" ng-disabled="!signForm.$valid || sending" ng-click="signUp()")
             .font-bold.text-sm {{::'js.users.sign_up' | translate}}
 .gtr-t
   {{::"js.users.have_account" | translate}}

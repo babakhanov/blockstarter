@@ -17,7 +17,7 @@
             %input(ng-model="signData.remember_me" type="checkbox")
             %span {{::"js.users.remember_me" | translate}}
       .gtr-t-xs
-        %button.btn.btn-primary.btn-block(ng-disabled="!signForm.$valid" ng-click="signIn()")
+        %button.btn.btn-primary.btn-block(ng-click="signIn()" ng-disabled="sending || !signForm.$valid")
           .font-bold.text-sm {{::'js.users.enter' | translate}}
 .gtr-t
   {{::"js.users.have_no_account" | translate}}

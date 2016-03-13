@@ -1,0 +1,26 @@
+.header
+  .tbl
+    .tbl-cell.align-middle.cell-5.gtr-hor
+      %sapn(ng-if="$root.user")
+        .smile.align-middle.cursor-pointer.text-lg(onclick="App.Sidebar.toggle()")
+          .smile.align-middle.sidebar-open-icon
+            = icon :angle_left, class: 'line-null'
+          .smile.align-middle
+            = icon :menu, class: 'line-null'
+          .smile.align-middle.sidebar-close-icon
+            = icon :angle_right, class: 'line-null'
+    .tbl-cell.cell-2.text-center
+      .smile.head-xs.row-b
+        %a(ng-href='/#/')=icon :bitcoin_ticket, class: 'line-null'
+    .tbl-cell.align-middle.text-right.cell-5.gtr-hor
+      %span(ng-if="!$root.user")
+        .smile.align-middle.gtr-l-xs
+          %a(ng-href='/#/sign_in') {{::"js.users.sign_in" | translate}}
+        .smile /
+        .smile.align-middle.gtr-l-xs
+          %a(ng-href='/#/sign_up') {{::"js.users.sign_up" | translate}}
+      %span(ng-if="$root.user")
+        .smile.align-middle.gtr-hor-xs
+          {{user.email}}
+        .smile.align-middle
+          %a(href ng-click="logout()")=icon :sign_out

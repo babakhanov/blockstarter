@@ -3,9 +3,10 @@
 //= require ./tickets/tickets
 //= require ./settings/settings
 //= require ./shared/shared
+//= require ./wallets/wallets
 
 angular.module "app", [
-  "ngRoute",
+  "ngRoute"
   "templates"
   "Devise"
   "ngSanitize"
@@ -23,6 +24,7 @@ angular.module "app", [
   "app.tickets"
   "app.shared"
   "app.settings"
+  "app.wallets"
 ]
 
 angular.module "app"
