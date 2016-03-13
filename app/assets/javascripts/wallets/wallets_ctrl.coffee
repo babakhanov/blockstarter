@@ -1,5 +1,8 @@
 controller = ($scope, $rootScope) ->
-  $scope.$root.waiting = true
+
+  $rootScope.waiting = true
+  $scope.$apply() unless $scope.$$phase
+
   CRUD.index "wifs", "", (response) ->
     $scope.wifs = response.wifs
     $rootScope.waiting = false

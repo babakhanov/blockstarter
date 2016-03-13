@@ -9,10 +9,12 @@ class ColoredCoins
     @api_v = api_v
   end
 
-  def from_wif_to_addr(wif, addr, amount)
+  def from_wif_to_addr(wif, addr, amount, to_broadcast=true)
     txs = self.find_for_tx_to_send(wif, amount)
-    return txs[:error] if txs[:error]
-    `node #{Rails.root.to_s}/sign_js/from_wif_to_addr.js #{wif} #{addr} #{txs[0][:value]} #{amount} #{ENV["ASSET_FEE"].to_i}, #{txs[0][:txid]}, #{txs[0][:index]}}`.chomp
+    return txs[:error] if txs.class == "Hash" && txs[:error] 
+    params = [wif, addr, txs[0][:value], amount, ENV['ISSUE_FEE'], txs[0][:txid], txs[0][:index]].join(' ')
+    txHex = `node #{Rails.root.to_s}/sign_js/from_wif_to_addr.js #{params}}`.chomp
+    self.broadcast(txHex) if to_broadcast
   end
 
   def find_for_tx_to_send(wif, amount)

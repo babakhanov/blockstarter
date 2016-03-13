@@ -12,6 +12,6 @@
       .tbl
         %sidebar(ng-if="$root.user.id")
         .tbl-cell(ng-class="alignMiddle ? 'align-middle' : 'align-top'" style="overflow: auto;")
-          .tbl(ng-show="$parent.waiting || !$root.ready" spinner)
+          .tbl(ng-show="$root.waiting || !$root.ready" spinner)
           %span.content(ng-show="!$parent.waiting")
             .gtr-hor.gtr-ver(ng-view)

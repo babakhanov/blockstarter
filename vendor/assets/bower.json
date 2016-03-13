@@ -8,6 +8,7 @@
     "angular-translate": "latest",
     "angular-sanitize": "latest",
     "ng-file-upload": "latest",
-    "underscore": "latest"
+    "underscore": "latest",
+    "angular-qrcode": "latest"
   }
 }

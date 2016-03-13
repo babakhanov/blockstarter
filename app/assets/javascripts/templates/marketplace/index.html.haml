@@ -4,5 +4,8 @@
       .text-lg
         .page-title.text-lg {{::"js.pages.marketplace" | translate}}
   .text-line
+    .text-md.gtr-t-2x.text-center(ng-if="!tickets.length")
+      .gtr-t-2x
+        {{::"js.info.blankstate" | translate}}
     .gtr-b-sm(ng-repeat="(key, ticket) in tickets track by ticket.id")
       %ticket

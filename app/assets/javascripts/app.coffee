@@ -20,6 +20,7 @@ angular.module "app", [
   "mgcrea.ngStrap.helpers.dateParser"
   "mgcrea.ngStrap.helpers.dateFormatter"
   "mgcrea.ngStrap.datepicker"
+  "monospaced.qrcode"
   "app.core"
   "app.auth"
   "app.tickets"
